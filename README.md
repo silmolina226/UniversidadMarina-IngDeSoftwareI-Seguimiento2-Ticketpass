@@ -4,15 +4,13 @@ Proyecto transversal de Ingeniería de Software para el análisis de requisitos,
 # Unidad 2: Estimación Formal en la Construcción de Software
 ## Guía de Aprendizaje - Clase 1: Del Problema a las Historias de Usuario
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------
-**TEORÍA**
+------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## 1. Marco Teórico y Conceptos Clave
 
 ### 1.1. Del Problema al Requisito
 En la Ingeniería de Requisitos, el desarrollo de software comienza primero comprendiendo el dominio del problema:
 
-* **CCONCEPTOS**
 * **Problema:** La dolencia, ineficiencia o falla real que experimenta el cliente o usuario final en su contexto actual.
 * **Necesidad:** La transformación deseada u objetivo operativo que debe lograrse para resolver el problema.
 * **Requisito Funcional:** La especificación precisa de la funcionalidad que el software debe ejecutar para satisfacer la necesidad.
@@ -26,19 +24,20 @@ Una Historia de Usuario es una representación estructurada y agilista de un req
 * **Para** [Beneficio, valor de negocio u objetivo alcanzado]
 
 ### 1.3. Criterios de Aceptación (Reglas INVEST)
-Son las condiciones explícitas, reglas de negocio y límites operativos que deben cumplirse para verificar que una Historia de Usuario se ha completado correctamente. Siguen los principios INVEST:
+Son las condiciones explícitas, reglas de negocio y límites operativos que deben cumplirse para verificar que una Historia de Usuario se ha completado correctamente. Siguen los principios INVEST (creadas por Bill Wake para evaluar y asegurar la calidad de las historias de usuario en metodologías ágiles):
 * **I - Independiente (Independent)**: La historia debe poder desarrollarse y entregarse sin depender estrictamente de otra.
 * **N - Negociable (Negotiable)**: No es un contrato cerrado; los detalles se discuten y acuerdan entre el equipo y el cliente.
 * **V - Valiosa (Valuable)**: Aporta un beneficio claro y real para el usuario final o el negocio.
 * **E - Estimable (Estimable)**: El equipo técnico comprende el requerimiento lo bastante bien para calcular el esfuerzo necesario.
 * **S - Pequeña (Small)**: Tiene el tamaño ideal para completarse con éxito dentro de un mismo sprint.
 * **T - Comprobable o Testeable (Testable)**: Contiene la información y los criterios de aceptación necesarios para verificar mediante pruebas que funciona.
-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+---
 
 ## 2. Caso de Estudio Modelo: TicketPass
 
 ### Descripción del Dominio
-*TicketPass* es una plataforma web para la comercialización y gestión de boletería en eventos y festivales de alta concurrencia. El sistema aborda problemáticas de colapso de servidores por tráfico masivo y fraudes en la reventa de entradas.
+*TicketPass* es una plataforma web para la comercialización y gestión de boletería en eventos y festivales de alta concurrencia. El sistema aborda problemáticas de colapso de servidores por tráfico masivo, fraudes en la reventa de entradas y lentitud en la parametrización de ofertas comerciales.
 
 ### Actores del Sistema
 1. **Comprador / Fan:** Consulta el catálogo, ingresa a la fila virtual, selecciona la zona del escenario y realiza el pago de la boletería.
@@ -48,27 +47,44 @@ Son las condiciones explícitas, reglas de negocio y límites operativos que deb
 ### Mapeo de Requisitos (Matriz de Transformación)
 
 | Problema Identificado | Necesidad de Software | Requisito Funcional |
-
+| :--- | :--- | :--- |
 | Colapso de la plataforma web durante la venta inicial por alta concurrencia. | Administrar y ordenar el tráfico masivo de peticiones simultáneas. | El sistema debe asignar un turno en fila virtual a los usuarios cuando las peticiones superen las 1.000 solicitudes/minuto. |
 | Falsificación y duplicación de boletas en los puntos de acceso al evento. | Garantizar la autenticidad e infalsificabilidad de las entradas digitales. | El sistema debe generar un código QR dinámico cifrado que se actualice cada 30 segundos dentro de la aplicación móvil. |
+| Errores humanos y lentitud al configurar los aforos y precios por localidad. | Digitalizar y centralizar el control de capacidad de los recintos. | El sistema debe permitir parametrizar zonas, límites de aforo y esquemas de precios de forma dinámica antes del lanzamiento comercial. |
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------
+---
 
-## 3. Especificación del Taller Práctico, primera parte, para Desarroollar todo el segundo seguimiento:
+## 3. Especificación del Taller Práctico (Segundo Seguimiento) para 09-09-2026
 
 ### Modalidad
 * Trabajo en equipos de máximo 4 integrantes.
 
+### Criterios de Selección del Proyecto por Equipo
+El proyecto propuesto por cada grupo debe cumplir con los siguientes parámetros:
+* **Enfoque Transaccional o de Gestión:** Debe permitir la interacción de al menos 2 o 3 roles de usuario distintos con permisos diferenciados (ejm: Cliente, Administrador, Operador).
+* **Problema de Dominio Real:** Debe resolver una ineficiencia o necesidad clara del mundo real (ejm: reservas, controles, gestiónes, etc).
+* **Complejidad Adecuada:** Debe permitir extraer un alcance mínimo de 5 a 8 Historias de Usuario principales.
+
 ### Instrucciones Paso a Paso
-1. **Definición del Proyecto del Grupo:** Seleccionar una idea de software de la vida real y que quieran abordar. Nombre del proyecto y breve contextualización
+1. **Definición del Proyecto del Grupo:** Seleccionar una idea de software de la vida real. Definir nombre del proyecto y una breve contextualización del problema.
 2. **Configuración del Entorno:**
    * Crear un repositorio público en GitHub por equipo.
-   * Configurar un proyecto interno de tipo **Board** en la pestaña *Projects*. 
+   * Configurar un proyecto interno de tipo **Board** en la pestaña *Projects* con las columnas: `Todo`, `In Progress` y `Done`.
 3. **Elaboración del Documento de Requisitos:**
    * Crear la carpeta `/DOCS` en el repositorio y añadir el archivo `01_requisitos.md`.
    * Identificar al menos **3 actores principales** del sistema.
-   * Construir como mínimo **3 problemas**, sus respectivas necesidades y requisitos funcionales.
+   * Construir una tabla con mínimo **3 problemas**, sus respectivas necesidades de software y requisitos funcionales.
 4. **Creación del Backlog en GitHub Issues:**
    * Redactar entre **5 y 8 Historias de Usuario** en la pestaña *Issues* del repositorio.
-   * Aplicar la estructura estándar (`Como / Quiero / Para`) e incluir al menos 3 criterios de aceptación por historia.
+   * Aplicar la estructura estándar (`Como / Quiero / Para`) e incluir al menos 3 criterios de aceptación por historia con casillas de verificación.
    * Vincular los *Issues* al tablero de *GitHub Projects* en la columna `Todo`.
+
+---
+
+## 4. Criterios de Evaluación y Rúbrica de Calificación (5.0 Puntos
+
+| Criterio | Descripción | Puntaje |
+| :--- | :--- | :--- |
+| **Documentación de Requisitos** | El archivo `DOCS/01_requisitos.md` incluye los 3 actores y la tabla completa con 3 problemas, necesidades y requisitos funcionales alineados. | 1.5 pts |
+| **Redacción Agilista de HUs** | Las 5 a 8 historias en *GitHub Issues* cumplen estrictamente la estructura agilista (`Como [rol] Quiero [acción] Para [beneficio]`). | 2.0 pts |
+| **Criterios de Aceptación (INVEST)** | Cada historia especifica al menos 3 criterios de aceptación verificables mediante casillas de verificación (`- [ ]`). | 1.5 pt |
