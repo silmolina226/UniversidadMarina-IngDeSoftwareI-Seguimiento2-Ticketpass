@@ -5,12 +5,14 @@ Proyecto transversal de Ingeniería de Software para el análisis de requisitos,
 ## Guía de Aprendizaje - Clase 1: Del Problema a las Historias de Usuario
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
+**TEORÍA**
 
 ## 1. Marco Teórico y Conceptos Clave
 
 ### 1.1. Del Problema al Requisito
-En la Ingeniería de Requisitos, el desarrollo de software no comienza escribiendo código, sino comprendiendo el dominio del problema:
+En la Ingeniería de Requisitos, el desarrollo de software comienza primero comprendiendo el dominio del problema:
 
+* **CCONCEPTOS**
 * **Problema:** La dolencia, ineficiencia o falla real que experimenta el cliente o usuario final en su contexto actual.
 * **Necesidad:** La transformación deseada u objetivo operativo que debe lograrse para resolver el problema.
 * **Requisito Funcional:** La especificación precisa de la funcionalidad que el software debe ejecutar para satisfacer la necesidad.
@@ -52,20 +54,20 @@ Son las condiciones explícitas, reglas de negocio y límites operativos que deb
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## 3. Especificación del Taller Práctico para los Equipos
+## 3. Especificación del Taller Práctico, primera parte, para Desarroollar todo el segundo seguimiento:
 
 ### Modalidad
 * Trabajo en equipos de máximo 4 integrantes.
 
 ### Instrucciones Paso a Paso
-1. **Definición del Proyecto del Grupo:** Seleccionar una idea de software de la vida real
+1. **Definición del Proyecto del Grupo:** Seleccionar una idea de software de la vida real y que quieran abordar. Nombre del proyecto y breve contextualización
 2. **Configuración del Entorno:**
    * Crear un repositorio público en GitHub por equipo.
-   * Configurar un proyecto interno de tipo **Board** en la pestaña *Projects* con las columnas: `Todo`, `In Progress` y `Done`.
+   * Configurar un proyecto interno de tipo **Board** en la pestaña *Projects*. 
 3. **Elaboración del Documento de Requisitos:**
    * Crear la carpeta `/DOCS` en el repositorio y añadir el archivo `01_requisitos.md`.
-   * Identificar los **3 actores principales** del sistema.
-   * Construir una tabla con mínimo **3 problemas**, sus respectivas necesidades y requisitos funcionales.
+   * Identificar al menos **3 actores principales** del sistema.
+   * Construir como mínimo **3 problemas**, sus respectivas necesidades y requisitos funcionales.
 4. **Creación del Backlog en GitHub Issues:**
    * Redactar entre **5 y 8 Historias de Usuario** en la pestaña *Issues* del repositorio.
    * Aplicar la estructura estándar (`Como / Quiero / Para`) e incluir al menos 3 criterios de aceptación por historia.
