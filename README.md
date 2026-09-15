@@ -88,3 +88,67 @@ El proyecto propuesto por cada grupo debe cumplir con los siguientes parámetros
 | **Documentación de Requisitos** | El archivo `DOCS/01_requisitos.md` incluye los 3 actores y la tabla completa con 3 problemas, necesidades y requisitos funcionales alineados. | 1.5 pts |
 | **Redacción Agilista de HUs** | Las 5 a 8 historias en *GitHub Issues* cumplen estrictamente la estructura agilista (`Como [rol] Quiero [acción] Para [beneficio]`). | 2.0 pts |
 | **Criterios de Aceptación (INVEST)** | Cada historia especifica al menos 3 criterios de aceptación verificables mediante casillas de verificación (`- [ ]`). | 1.5 pt |
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Unidad 2: Estimación Formal en la Construcción de Software
+## Guía de Aprendizaje - Clase 2: Valor de Negocio, Priorización y Estimación Empírica
+
+---
+
+## 1. Marco Teórico
+
+### 1.1. Valor de Negocio y Priorización (Método MoSCoW)
+No todas las Historias de Usuario aportan el mismo impacto financiero, operativo o de satisfacción. La priorización mediante el método **MoSCoW** permite definir el Alcance Mínimo Viable (MVP):
+
+* **M - Must Have (Imprescindible):** Vitales para la operación básica. Sin ellas el sistema no puede salir a producción.
+* **S - Should Have (Debería tener):** De gran valor pero no críticas para el lanzamiento inicial.
+* **C - Could Have (Podría tener):** Deseables, solo se implementan si hay tiempo sobrante.
+* **W - Won't Have (No por ahora):** Fuera del alcance para esta fase.
+
+### 1.2. Estimación Empírica vs. Estimación Formal
+* **Estimación Empírica:** Evaluación cualitativa basada en la experiencia previa del equipo, analogías con proyectos pasados y juicio intuitivo, sin aplicar fórmulas matemáticas rígidas.
+* **Comparación Relativa entre Equipos:** Análisis cruzado de criterios para calibrar si la percepción de dificultad es uniforme entre los diferentes grupos de trabajo.
+
+---
+
+## 2. Caso de Estudio Modelo: TicketPass
+
+### Matriz de Priorización y Estimación Empírica Inicial
+
+| ID Issue | Historia de Usuario | Categoría MoSCoW | Valor de Negocio | Estimación Empírica (Cualitativa) |
+| :-: | :--- | :-: | :-: | :--- |
+| **#1** | HU01 - Fila Virtual para Compra | **Must Have** | Crítico | Alta complejidad técnica y alto riesgo de infraestructura. |
+| **#2** | HU02 - Código QR Dinámico | **Must Have** | Crítico | Complejidad media por lógica de cifrado temporal. |
+| **#3** | HU03 - Parametrización de Zonas | **Must Have** | Alto | Complejidad baja (CRUD estándar de formularios). |
+| **#4** | HU04 - Selección vía Mapa Interactivo | **Should Have** | Medio | Complejidad media-alta por interfaz gráfica interactiva. |
+| **#5** | HU05 - Validación en Punto de Acceso | **Must Have** | Alto | Complejidad baja-media (consumo de API y cámara). |
+
+---
+
+## 3. Especificación del Taller Práctico - Clase 2
+
+### Modalidad
+* Trabajo en equipos de máximo 4 integrantes + Sesión de coevaluación/comparación cruzada.
+
+### Instrucciones Paso a Paso
+1. **Priorización MoSCoW:**
+   * Clasificar las Historias de Usuario en la matriz del archivo `DOCS/02_priorizacion.md`.
+2. **Creación de Labels en GitHub Issues:**
+   * En GitHub, crear y asignar las etiquetas (`must-have`, `should-have`, `could-have`, `wont-have`) a cada Issue.
+3. **Ejercicio de Estimación Empírica:**
+   * Registrar una justificación cualitativa del nivel de dificultad (Baja, Media, Alta) según el conocimiento del equipo.
+4. **Comparación entre Equipos (Pitch Cruzado):**
+   * Un representante de cada equipo revisa el backlog de otro grupo para validar si la clasificación MoSCoW es coherente.
+
+---
+
+## 4. Criterios de Evaluación y Rúbrica (5.0 Puntos)
+
+| Criterio | Descripción | Puntaje |
+| :--- | :--- | :--- |
+| **Documentación (`02_priorizacion.md`)** | Matriz MoSCoW completa, justificación del valor de negocio y delimitación del MVP. | 1.5 pts |
+| **Configuración en GitHub Issues** | Creación y asignación correcta de las etiquetas de prioridad (Labels) en todos los Issues. | 1.5 pts |
+| **Estimación Empírica Cualitativa** | Identificación coherente de los niveles de complejidad (Baja/Media/Alta) para cada historia. | 1.0 pt |
+| **Co-evaluación / Feedback Cruzado** | Participación activa en la validación y comparación de backlogs entre equipos. | 1.0 pt |
