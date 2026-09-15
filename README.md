@@ -54,7 +54,7 @@ Son las condiciones explícitas, reglas de negocio y límites operativos que deb
 
 ---
 
-## 3. Especificación del Taller Práctico (Segundo Seguimiento) para 09-09-2026
+## 3. Especificación del Taller Práctico 09-09-2026
 
 ### Modalidad
 * Trabajo en equipos de máximo 4 integrantes.
@@ -127,7 +127,7 @@ No todas las Historias de Usuario aportan el mismo impacto financiero, operativo
 
 ---
 
-## 3. Especificación del Taller Práctico - Clase 2
+## 3. Especificación del Taller Práctico 16-09-2026
 
 ### Modalidad
 * Trabajo en equipos de máximo 4 integrantes + Sesión de coevaluación/comparación cruzada.
