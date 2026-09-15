@@ -1,14 +1,14 @@
 # Reporte de Priorización MoSCoW y Estimación Empírica - Proyecto TicketPass
 
-## 1. Matriz de Priorización y Análisis de Valor
+## 1. Matriz de Priorización y Estimación del Backlog
 
-| ID Issue | Historia de Usuario | Clasificación MoSCoW | Valor para el Negocio | Estimación Empírica Inicial |
-| :-: | :--- | :-: | :--- | :--- |
-| **#1** | HU01 - Fila Virtual para Compra de Boletas | **Must Have** | Crítico | Complejidad Alta (Riesgo de caídas por alta concurrencia). |
-| **#2** | HU02 - Generación de Código QR Dinámico | **Must Have** | Crítico | Complejidad Media (Cifrado local y expiración por tiempo). |
-| **#3** | HU03 - Parametrización de Zonas y Precios | **Must Have** | Alto | Complejidad Baja (Gestión administrativa estándar). |
-| **#4** | HU04 - Selección mediante Mapa Interactivo | **Should Have** | Medio | Complejidad Media-Alta (Lógica visual y bloqueo de sillas). |
-| **#5** | HU05 - Validación de Boletas en Punto de Acceso | **Must Have** | Alto | Complejidad Baja (Escaneo básico y respuesta en tiempo real). |
+| ID Issue | Historia de Usuario | Categoría MoSCoW | Valor de Negocio | Estimación Empírica (Cualitativa) | Estimación Formal (Clase 3) |
+| :-: | :--- | :-: | :-: | :--- | :--- |
+| **#1** | HU01 - Fila Virtual para Compra de Boletas | **Must Have** | Crítico | Alta complejidad técnica y alto riesgo de infraestructura. | *Pendiente (Story Points / Horas)* |
+| **#2** | HU02 - Generación de Código QR Dinámico para Entradas | **Must Have** | Crítico | Complejidad media por lógica de cifrado temporal. | *Pendiente (Story Points / Horas)* |
+| **#3** | HU03 - Parametrización de Zonas y Precios de Boletería | **Must Have** | Alto | Complejidad baja (CRUD estándar de formularios). | *Pendiente (Story Points / Horas)* |
+| **#4** | HU04 - Selección de Boletas mediante Mapa Interactivo | **Should Have** | Medio | Complejidad media-alta por interfaz gráfica interactiva. | *Pendiente (Story Points / Horas)* |
+| **#5** | HU05 - Validación de Boletas en Punto de Acceso | **Must Have** | Alto | Complejidad baja-media (consumo de API y cámara). | *Pendiente (Story Points / Horas)* |
 
 ---
 
