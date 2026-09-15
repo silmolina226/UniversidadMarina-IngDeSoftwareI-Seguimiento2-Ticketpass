@@ -100,16 +100,23 @@ El proyecto propuesto por cada grupo debe cumplir con los siguientes parámetros
 ## 1. Marco Teórico
 
 ### 1.1. Valor de Negocio y Priorización (Método MoSCoW)
-No todas las Historias de Usuario aportan el mismo impacto financiero, operativo o de satisfacción. La priorización mediante el método **MoSCoW** permite definir el Alcance Mínimo Viable (MVP):
+El **Valor de Negocio** mide el beneficio estratégico, operativo o financiero que aporta una funcionalidad al cliente o a la organización. No todos los requisitos tienen la misma importancia ni deben construirse al mismo tiempo. 
 
-* **M - Must Have (Imprescindible):** Vitales para la operación básica. Sin ellas el sistema no puede salir a producción.
-* **S - Should Have (Debería tener):** De gran valor pero no críticas para el lanzamiento inicial.
-* **C - Could Have (Podría tener):** Deseables, solo se implementan si hay tiempo sobrante.
-* **W - Won't Have (No por ahora):** Fuera del alcance para esta fase.
+La priorización mediante el método **MoSCoW** permite definir el **Producto Mínimo Viable (MVP)**:
+* **M - Must Have (Imprescindible):** Vitales para la operación básica. Sin ellas el sistema no puede funcionar en producción.
+* **S - Should Have (Debería tener):** De alto valor e importancia, pero no críticas para el lanzamiento inicial.
+* **C - Could Have (Podría tener):** Deseables o secundarias; solo se implementan si se dispone de tiempo y recursos sobrantes.
+* **W - Won't Have (No por ahora):** Fuera del alcance para la fase actual, consideradas para futuras iteraciones.
 
-### 1.2. Estimación Empírica vs. Estimación Formal
-* **Estimación Empírica:** Evaluación cualitativa basada en la experiencia previa del equipo, analogías con proyectos pasados y juicio intuitivo, sin aplicar fórmulas matemáticas rígidas.
-* **Comparación Relativa entre Equipos:** Análisis cruzado de criterios para calibrar si la percepción de dificultad es uniforme entre los diferentes grupos de trabajo.
+### 1.2. Justificación del Valor para el Negocio
+Para priorizar con rigor técnico, cada requisito debe evaluarse bajo criterios de impacto:
+* **Impacto Operativo:** Evita caídas o fallos críticos en el servicio.
+* **Impacto Financiero / Monetario:** Permite el recaudo o la transacción económica.
+* **Experiencia de Usuario (UX):** Facilita la usabilidad sin ser indispensable para la transacción.
+
+### 1.3. Estimación Empírica vs. Estimación Formal
+* **Estimación Empírica (Cualitativa):** Evaluación inicial basada en juicio intuitivo, experiencia previa del equipo y nivel de complejidad percibido (Baja, Media, Alta), sin asignar métricas numéricas aún.
+* **Estimación Formal (Cuantitativa):** Asignación matemática de esfuerzo en Puntos de Historia (Story Points) y horas de desarrollo (se abordará en la Clase 3).
 
 ---
 
@@ -129,7 +136,7 @@ No todas las Historias de Usuario aportan el mismo impacto financiero, operativo
 ## 3. Especificación del Taller Práctico 16-09-2026
 
 ### Modalidad
-* Trabajo en equipos de máximo 4 integrantes + Sesión de coevaluación/comparación cruzada.
+* Trabajo en equipos de máximo 4 integrantes 
 
 ### Instrucciones Paso a Paso
 1. **Priorización MoSCoW:**
