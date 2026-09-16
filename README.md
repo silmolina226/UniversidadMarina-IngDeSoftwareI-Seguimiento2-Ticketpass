@@ -140,7 +140,7 @@ El **Producto Mínimo Viable (MVP)** para el lanzamiento de **TicketPass** se co
 
 ---
 
-## 3. Especificación del Taller Práctico
+## 3. Especificación del Taller Práctico 16/09/2026
 
 ### Modalidad
 * Trabajo en equipos de máximo 4 integrantes.
