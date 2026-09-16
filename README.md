@@ -99,7 +99,7 @@ El proyecto propuesto por cada grupo debe cumplir con los siguientes parámetros
 
 ## 1. Marco Teórico
 
-### 1.1. Valor de Negocio y Priorización (Método MoSCoW)
+### 1.1. Valor de Negocio y Criterios de Impacto
 El **Valor de Negocio** determina el beneficio estratégico, operativo o financiero que aporta una funcionalidad al sistema. No todos los requisitos aportan el mismo retorno ni deben construirse simultáneamente.
 
 Para evaluar el valor de negocio con rigor técnico, analizamos su **Criterio de Impacto Principal**:
@@ -107,33 +107,40 @@ Para evaluar el valor de negocio con rigor técnico, analizamos su **Criterio de
 * **Impacto Financiero / Monetario:** Permite el recaudo, la transacción económica y la generación directa de ingresos.
 * **Impacto en Experiencia de Usuario (UX):** Optimiza la usabilidad y la interacción visual, facilitando el uso sin ser indispensable para la transacción.
 
-A partir de este análisis, la priorización mediante **MoSCoW** define el **Producto Mínimo Viable (MVP)**:
+### 1.2. Priorización mediante el Método MoSCoW
+La técnica **MoSCoW** ayuda a categorizar el backlog para definir el alcance del proyecto:
 * **M - Must Have (Imprescindible):** Vitales para la operación básica. Sin ellas el sistema no puede funcionar en producción.
 * **S - Should Have (Debería tener):** De alto valor e importancia, pero sustituibles o postergables para el lanzamiento inicial.
 * **C - Could Have (Podría tener):** Deseables o secundarias; solo se implementan si se dispone de tiempo sobrante.
 * **W - Won't Have (No por ahora):** Fuera del alcance para la iteración actual.
 
-### 1.2. Estimación Empírica vs. Estimación Formal
-* **Estimación Empírica (Cualitativa):** Evaluación inicial basada en juicio intuitivo, experiencia previa del equipo y nivel de complejidad técnica percibida (Baja, Media, Alta), sin asignar métricas numéricas aún.
-* **Estimación Formal (Cuantitativa):** Asignación matemática de esfuerzo en Puntos de Historia (Story Points) y horas de desarrollo (se abordará en la Clase 3).
+### 1.3. Estimación Empírica (Cualitativa)
+Evaluación inicial basada en el juicio intuitivo, experiencia previa del equipo y nivel de complejidad técnica percibida (**Baja, Media, Alta**), previa a la asignación de métricas cuantitativas.
 
 ---
 
 ## 2. Caso de Estudio Modelo: TicketPass
 
-### Matriz de Priorización y Estimación del Backlog
+### 2.1. Matriz de Priorización y Estimación Empírica
 
-| ID Issue | Historia de Usuario | Categoría MoSCoW | Criterio de Impacto (Valor de Negocio) | Justificación Estratégica | Estimación Empírica (Cualitativa) | Estimación Formal (Clase 3) |
-| :-: | :--- | :-: | :--- | :--- | :--- | :--- |
-| **#1** | HU01 - Fila Virtual para Compra de Boletas | **Must Have** | Impacto Operativo | Evita la caída masiva del servidor durante picos de demanda alta. | Alta complejidad técnica y alto riesgo de infraestructura. | *Pendiente (Story Points / Horas)* |
-| **#2** | HU02 - Generación de Código QR Dinámico para Entradas | **Must Have** | Impacto Financiero y Seguridad | Protege el recaudo evitando la clonación, falsificación y reventa no autorizada. | Complejidad media por lógica de cifrado temporal. | *Pendiente (Story Points / Horas)* |
-| **#3** | HU03 - Parametrización de Zonas y Precios de Boletería | **Must Have** | Impacto Financiero | Habilita la configuración comercial del evento. Sin esto no hay venta posible. | Complejidad baja (CRUD estándar de formularios). | *Pendiente (Story Points / Horas)* |
-| **#4** | HU04 - Selección de Boletas mediante Mapa Interactivo | **Should Have** | Impacto UX | Mejora la experiencia visual de selección, pero se puede sustituir por una lista desplegable en la fase 1. | Complejidad media-alta por interfaz gráfica interactiva. | *Pendiente (Story Points / Horas)* |
-| **#5** | HU05 - Validación de Boletas en Punto de Acceso | **Must Have** | Impacto Operativo | Permite al equipo de logística verificar en tiempo real el ingreso en el recinto. | Complejidad baja-media (consumo de API y cámara). | *Pendiente (Story Points / Horas)* |
+| ID Issue | Historia de Usuario | Categoría MoSCoW | Criterio de Impacto (Valor de Negocio) | Justificación Estratégica | Estimación Empírica (Cualitativa) |
+| :-: | :--- | :-: | :--- | :--- | :--- |
+| **#1** | HU01 - Fila Virtual para Compra de Boletas | **Must Have** | Impacto Operativo | Evita la caída masiva del servidor durante picos de demanda alta. | Alta complejidad técnica y alto riesgo de infraestructura. |
+| **#2** | HU02 - Generación de Código QR Dinámico para Entradas | **Must Have** | Impacto Financiero y Seguridad | Protege el recaudo evitando la clonación, falsificación y reventa no autorizada. | Complejidad media por lógica de cifrado temporal. |
+| **#3** | HU03 - Parametrización de Zonas y Precios de Boletería | **Must Have** | Impacto Financiero | Habilita la configuración comercial del evento. Sin esto no hay venta posible. | Complejidad baja (CRUD estándar de formularios). |
+| **#4** | HU04 - Selección de Boletas mediante Mapa Interactivo | **Should Have** | Impacto UX | Mejora la experiencia visual de selección, pero se puede sustituir por una lista desplegable en la fase 1. | Complejidad media-alta por interfaz gráfica interactiva. |
+| **#5** | HU05 - Validación de Boletas en Punto de Acceso | **Must Have** | Impacto Operativo | Permite al equipo de logística verificar en tiempo real el ingreso en el recinto. | Complejidad baja-media (consumo de API y cámara). |
+
+### 2.2. Alcance del Producto Mínimo Viable (MVP)
+
+El **Producto Mínimo Viable (MVP)** para el lanzamiento de **TicketPass** se compondrá únicamente de las historias clasificadas como **Must Have** (`#1`, `#2`, `#3` y `#5`).
+
+* **Justificación de Selección:** Se cubren las tres dimensiones críticas del negocio (estabilidad operativa, recaudo financiero y validación de acceso en puerta).
+* **Funcionalidades Postergadas:** La historia `#4` (**Mapa Interactivo**) se pospone para el siguiente ciclo de desarrollo, sustituyéndola temporalmente por una selección de zona mediante menú desplegable convencional.
 
 ---
 
-## 3. Especificación del Taller Práctico 16-09-2026
+## 3. Especificación del Taller Práctico
 
 ### Modalidad
 * Trabajo en equipos de máximo 4 integrantes.
@@ -141,8 +148,8 @@ A partir de este análisis, la priorización mediante **MoSCoW** define el **Pro
 ### Instrucciones Paso a Paso
 1. **Priorización MoSCoW:**
    * Clasificar las Historias de Usuario en la matriz del archivo `DOCS/02_priorizacion.md`.
-2. **Creación de Labels en GitHub Issues:**
-   * En GitHub, crear y asignar las etiquetas (`must-have`, `should-have`, `could-have`, `wont-have`) a cada Issue.
+2. **Creación y Asignación de Labels en GitHub Issues:**
+   * Crear en el repositorio las etiquetas (`must-have`, `should-have`, `could-have`, `wont-have`) y asignarlas a cada Issue.
 3. **Ejercicio de Estimación Empírica:**
    * Registrar una justificación cualitativa del nivel de dificultad (Baja, Media, Alta) según el conocimiento del equipo.
 4. **Comparación entre Equipos (Pitch Cruzado):**
