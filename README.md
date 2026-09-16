@@ -152,7 +152,7 @@ El **Producto Mínimo Viable (MVP)** para el lanzamiento de **TicketPass** se co
    * Crear en el repositorio las etiquetas (`must-have`, `should-have`, `could-have`, `wont-have`) y asignarlas a cada Issue.
 3. **Ejercicio de Estimación Empírica:**
    * Registrar una justificación cualitativa del nivel de dificultad (Baja, Media, Alta) según el conocimiento del equipo.
-4. **Comparación entre Equipos (Pitch Cruzado):**
+4. **Comparación entre Equipos:**
    * Un representante de cada equipo revisa el backlog de otro grupo para validar si la clasificación MoSCoW es coherente.
 
 ---
