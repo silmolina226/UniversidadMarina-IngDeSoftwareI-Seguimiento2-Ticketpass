@@ -100,22 +100,21 @@ El proyecto propuesto por cada grupo debe cumplir con los siguientes parámetros
 ## 1. Marco Teórico
 
 ### 1.1. Valor de Negocio y Priorización (Método MoSCoW)
-El **Valor de Negocio** mide el beneficio estratégico, operativo o financiero que aporta una funcionalidad al cliente o a la organización. No todos los requisitos tienen la misma importancia ni deben construirse al mismo tiempo. 
+El **Valor de Negocio** determina el beneficio estratégico, operativo o financiero que aporta una funcionalidad al sistema. No todos los requisitos aportan el mismo retorno ni deben construirse simultáneamente.
 
-La priorización mediante el método **MoSCoW** permite definir el **Producto Mínimo Viable (MVP)**:
+Para evaluar el valor de negocio con rigor técnico, analizamos su **Criterio de Impacto Principal**:
+* **Impacto Operativo:** Garantiza la estabilidad, disponibilidad y funcionamiento continuo del servicio. Evita caídas o fallos críticos.
+* **Impacto Financiero / Monetario:** Permite el recaudo, la transacción económica y la generación directa de ingresos.
+* **Impacto en Experiencia de Usuario (UX):** Optimiza la usabilidad y la interacción visual, facilitando el uso sin ser indispensable para la transacción.
+
+A partir de este análisis, la priorización mediante **MoSCoW** define el **Producto Mínimo Viable (MVP)**:
 * **M - Must Have (Imprescindible):** Vitales para la operación básica. Sin ellas el sistema no puede funcionar en producción.
-* **S - Should Have (Debería tener):** De alto valor e importancia, pero no críticas para el lanzamiento inicial.
-* **C - Could Have (Podría tener):** Deseables o secundarias; solo se implementan si se dispone de tiempo y recursos sobrantes.
-* **W - Won't Have (No por ahora):** Fuera del alcance para la fase actual, consideradas para futuras iteraciones.
+* **S - Should Have (Debería tener):** De alto valor e importancia, pero sustituibles o postergables para el lanzamiento inicial.
+* **C - Could Have (Podría tener):** Deseables o secundarias; solo se implementan si se dispone de tiempo sobrante.
+* **W - Won't Have (No por ahora):** Fuera del alcance para la iteración actual.
 
-### 1.2. Justificación del Valor para el Negocio
-Para priorizar con rigor técnico, cada requisito debe evaluarse bajo criterios de impacto:
-* **Impacto Operativo:** Evita caídas o fallos críticos en el servicio.
-* **Impacto Financiero / Monetario:** Permite el recaudo o la transacción económica.
-* **Experiencia de Usuario (UX):** Facilita la usabilidad sin ser indispensable para la transacción.
-
-### 1.3. Estimación Empírica vs. Estimación Formal
-* **Estimación Empírica (Cualitativa):** Evaluación inicial basada en juicio intuitivo, experiencia previa del equipo y nivel de complejidad percibido (Baja, Media, Alta), sin asignar métricas numéricas aún.
+### 1.2. Estimación Empírica vs. Estimación Formal
+* **Estimación Empírica (Cualitativa):** Evaluación inicial basada en juicio intuitivo, experiencia previa del equipo y nivel de complejidad técnica percibida (Baja, Media, Alta), sin asignar métricas numéricas aún.
 * **Estimación Formal (Cuantitativa):** Asignación matemática de esfuerzo en Puntos de Historia (Story Points) y horas de desarrollo (se abordará en la Clase 3).
 
 ---
@@ -124,19 +123,20 @@ Para priorizar con rigor técnico, cada requisito debe evaluarse bajo criterios 
 
 ### Matriz de Priorización y Estimación del Backlog
 
-| ID Issue | Historia de Usuario | Categoría MoSCoW | Valor de Negocio | Estimación Empírica (Cualitativa) | Estimación Formal (Clase 3) |
-| :-: | :--- | :-: | :-: | :--- | :--- |
-| **#1** | HU01 - Fila Virtual para Compra de Boletas | **Must Have** | Crítico | Alta complejidad técnica y alto riesgo de infraestructura. | *Pendiente (Story Points / Horas)* |
-| **#2** | HU02 - Generación de Código QR Dinámico para Entradas | **Must Have** | Crítico | Complejidad media por lógica de cifrado temporal. | *Pendiente (Story Points / Horas)* |
-| **#3** | HU03 - Parametrización de Zonas y Precios de Boletería | **Must Have** | Alto | Complejidad baja (CRUD estándar de formularios). | *Pendiente (Story Points / Horas)* |
-| **#4** | HU04 - Selección de Boletas mediante Mapa Interactivo | **Should Have** | Medio | Complejidad media-alta por interfaz gráfica interactiva. | *Pendiente (Story Points / Horas)* |
-| **#5** | HU05 - Validación de Boletas en Punto de Acceso | **Must Have** | Alto | Complejidad baja-media (consumo de API y cámara). | *Pendiente (Story Points / Horas)* |
+| ID Issue | Historia de Usuario | Categoría MoSCoW | Criterio de Impacto (Valor de Negocio) | Justificación Estratégica | Estimación Empírica (Cualitativa) | Estimación Formal (Clase 3) |
+| :-: | :--- | :-: | :--- | :--- | :--- | :--- |
+| **#1** | HU01 - Fila Virtual para Compra de Boletas | **Must Have** | Impacto Operativo | Evita la caída masiva del servidor durante picos de demanda alta. | Alta complejidad técnica y alto riesgo de infraestructura. | *Pendiente (Story Points / Horas)* |
+| **#2** | HU02 - Generación de Código QR Dinámico para Entradas | **Must Have** | Impacto Financiero y Seguridad | Protege el recaudo evitando la clonación, falsificación y reventa no autorizada. | Complejidad media por lógica de cifrado temporal. | *Pendiente (Story Points / Horas)* |
+| **#3** | HU03 - Parametrización de Zonas y Precios de Boletería | **Must Have** | Impacto Financiero | Habilita la configuración comercial del evento. Sin esto no hay venta posible. | Complejidad baja (CRUD estándar de formularios). | *Pendiente (Story Points / Horas)* |
+| **#4** | HU04 - Selección de Boletas mediante Mapa Interactivo | **Should Have** | Impacto UX | Mejora la experiencia visual de selección, pero se puede sustituir por una lista desplegable en la fase 1. | Complejidad media-alta por interfaz gráfica interactiva. | *Pendiente (Story Points / Horas)* |
+| **#5** | HU05 - Validación de Boletas en Punto de Acceso | **Must Have** | Impacto Operativo | Permite al equipo de logística verificar en tiempo real el ingreso en el recinto. | Complejidad baja-media (consumo de API y cámara). | *Pendiente (Story Points / Horas)* |
+
 ---
 
 ## 3. Especificación del Taller Práctico 16-09-2026
 
 ### Modalidad
-* Trabajo en equipos de máximo 4 integrantes 
+* Trabajo en equipos de máximo 4 integrantes.
 
 ### Instrucciones Paso a Paso
 1. **Priorización MoSCoW:**
