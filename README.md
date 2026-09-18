@@ -165,3 +165,64 @@ El **Producto Mínimo Viable (MVP)** para el lanzamiento de **TicketPass** se co
 | **Configuración en GitHub Issues** | Creación y asignación correcta de las etiquetas de prioridad (Labels) en todos los Issues. | 1.5 pts |
 | **Estimación Empírica Cualitativa** | Identificación coherente de los niveles de complejidad (Baja/Media/Alta) para cada historia. | 1.0 pt |
 | **Co-evaluación / Feedback Cruzado** | Participación activa en la validación y comparación de backlogs entre equipos. | 1.0 pt |
+
+
+# Unidad 2: Estimación Formal en la Construcción de Software
+## Guía de Aprendizaje - Clase 3: Estimación Cuantitativa mediante Planning Poker y Story Points
+
+---
+
+## 1. Marco Teórico
+
+### 1.1. Del Juicio Empírico a la Estimación Formal
+En la Clase 2 realizamos una estimación cualitativa (Baja, Media, Alta). En esta sesión transitamos hacia la **Estimación Formal Cuantitativa**, la cual asigna unidades de esfuerzo relativas para eliminar la subjetividad individual mediante la sabiduría colectiva del equipo.
+
+### 1.2. Puntos de Historia (Story Points - SP)
+Un **Punto de Historia** es una unidad abstracta que mide el tamaño global de un requisito integrando tres dimensiones:
+1. **Complejidad Técnica:** Nivel de dificultad algorítmica o de integración.
+2. **Esfuerzo Requerido:** Volumen de trabajo operativo a realizar.
+3. **Incertidumbre y Riesgo:** Grado de desconocimiento sobre la tecnología o el dominio.
+
+### 1.3. Técnica Planning Poker y Secuencia de Fibonacci Modificada
+El **Planning Poker** es una técnica orientada al consenso basada en el Juicio de Expertos. Se utiliza la serie de **Fibonacci Modificada** ($0.5, 1, 2, 3, 5, 8, 13, 20, 40, 100$):
+* **Historia Pivote (Referencia):** Se selecciona una historia de baja complejidad y esfuerzo conocido y se le asigna el valor de **1 SP** o **2 SP**. Todas las demás historias se estiman por comparación relativa con la historia pivote.
+* **Escalabilidad del Riesgo:** La distancia entre los números crece exponencialmente para reflejar que, a mayor tamaño del requisito, mayor es la incertidumbre matemática.
+
+---
+
+## 2. Caso de Estudio Modelo: TicketPass
+
+### 2.1. Matriz de Estimación Formal del Backlog
+
+* **Historia Pivote Seleccionada:** `HU03 - Parametrización de Zonas y Precios de Boletería` ($2 \text{ SP}$).
+
+| ID Issue | Historia de Usuario | Categoría MoSCoW | Estimación Cualitativa | Story Points (SP) | Razón del Puntaje (Juicio de Expertos) |
+| :-: | :--- | :-: | :--- | :-: | :--- |
+| **#1** | HU01 - Fila Virtual para Compra | **Must Have** | Alta complejidad | **13 SP** | Alta concurrencia, gestión de colas distribuida y riesgo de infraestructura. |
+| **#2** | HU02 - QR Dinámico para Entradas | **Must Have** | Complejidad media | **5 SP** | Lógica de cifrado simétrico temporal e integración con librería de renderizado. |
+| **#3** | HU03 - Parametrización de Zonas | **Must Have** | Complejidad baja | **2 SP** | **[Pivote]** CRUD estándar de base de datos sin lógica compleja. |
+| **#4** | HU04 - Mapa Interactivo | **Should Have** | Complejidad media-alta | **8 SP** | Manipulación de nodos SVG interactivos y sincronización de estado de asientos. |
+| **#5** | HU05 - Validación en Acceso | **Must Have** | Complejidad baja-media | **3 SP** | Consumo de API REST y lectura de cámara con manejo de errores de red. |
+
+---
+
+## 3. Especificación del Taller Práctico (23-09-2026)
+
+### Modalidad y Entregable
+* Trabajo en equipos de desarrollo.
+* **Entregable:** Archivo `DOCS/03_estimacion_formal.md` en el repositorio.
+
+### Instrucciones Paso a Paso
+1. **Selección de Historia Pivote:** Definir una historia de su backlog como referencia base ($1 \text{ SP}$ o $2 \text{ SP}$).
+2. **Dinámica de Planning Poker:** Estimación individual y debate de consensos para asignar Story Points (Fibonacci) a cada Issue.
+3. **Actualización en GitHub Issues:** Registrar el valor asignado en la estimación dentro de cada Issue de GitHub.
+
+---
+
+## 4. Criterios de Evaluación (5.0 Puntos)
+
+| Criterio | Descripción | Puntaje |
+| :--- | :--- | :--- |
+| **Definición de Historia Pivote** | Selección y justificación adecuada de la historia base de comparación en `DOCS/03_estimacion_formal.md`. | 1.5 pts |
+| **Matriz de Planning Poker** | Asignación rigurosa de Story Points con justificación del juicio de expertos para todo el backlog. | 2.0 pts |
+| **Sincronización en GitHub** | Actualización de la estimación formal en los Issues del repositorio. | 1.5 pts |
