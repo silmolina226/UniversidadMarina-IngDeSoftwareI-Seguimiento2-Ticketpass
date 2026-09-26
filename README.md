@@ -228,3 +228,4 @@ El **Planning Poker** es una técnica orientada al consenso basada en el Juicio 
 | **Sincronización en GitHub** | Actualización de la estimación formal en los Issues del repositorio. | 1.5 pts |
 
 
+j
