@@ -168,64 +168,78 @@ El **Producto Mínimo Viable (MVP)** para el lanzamiento de **TicketPass** se co
 
 
 # Unidad 2: Estimación Formal en la Construcción de Software
-## Guía de Aprendizaje - Clase 3: Estimación Cuantitativa mediante Planning Poker y Story Points
+## Guía de Aprendizaje - Clase 3: Estimación Formal, Juicio de Expertos, Tiempo, Esfuerzo y Costos
 
 ---
 
-## 1. Marco Teórico
+## 1. Marco Teórico y Conceptos Clave
 
-### 1.1. Del Juicio Empírico a la Estimación Formal
-En la Clase 2 realizamos una estimación cualitativa (Baja, Media, Alta). En esta sesión transitamos hacia la **Estimación Formal Cuantitativa**, la cual asigna unidades de esfuerzo relativas para eliminar la subjetividad individual mediante la sabiduría colectiva del equipo.
+### 1.1. De la Estimación Empírica a la Estimación Formal
+En la sesión anterior realizamos una categorización cualitativa (Baja, Media, Alta). En esta fase transitamos a la **Estimación Formal Cuantitativa**, la cual busca reducir la incertidumbre mediante métricas estandarizadas, matemáticas de capacidad y consenso de equipo.
 
-### 1.2. Puntos de Historia (Story Points - SP)
-Un **Punto de Historia** es una unidad abstracta que mide el tamaño global de un requisito integrando tres dimensiones:
-1. **Complejidad Técnica:** Nivel de dificultad algorítmica o de integración.
-2. **Esfuerzo Requerido:** Volumen de trabajo operativo a realizar.
-3. **Incertidumbre y Riesgo:** Grado de desconocimiento sobre la tecnología o el dominio.
+### 1.2. Juicio de Expertos y Planning Poker
+El **Juicio de Expertos** aprovecha la experiencia acumulada de los ingenieros para evaluar requisitos ambiguos. Para evitar sesgos de autoridad, se utiliza **Planning Poker**, una técnica guiada por la secuencia de **Fibonacci Modificada** ($0.5, 1, 2, 3, 5, 8, 13, 20, 40, 100$):
+* **Historia Pivote (Referencia):** Se elige una historia de complejidad mínima conocida y se le asigna un valor base (ej. $2 \text{ SP}$).
+* **Escalabilidad del Riesgo:** El salto entre números aumenta exponencialmente para reflejar que, a mayor tamaño o complejidad de un requisito, mayor es el riesgo matemático de desviación.
 
-### 1.3. Técnica Planning Poker y Secuencia de Fibonacci Modificada
-El **Planning Poker** es una técnica orientada al consenso basada en el Juicio de Expertos. Se utiliza la serie de **Fibonacci Modificada** ($0.5, 1, 2, 3, 5, 8, 13, 20, 40, 100$):
-* **Historia Pivote (Referencia):** Se selecciona una historia de baja complejidad y esfuerzo conocido y se le asigna el valor de **1 SP** o **2 SP**. Todas las demás historias se estiman por comparación relativa con la historia pivote.
-* **Escalabilidad del Riesgo:** La distancia entre los números crece exponencialmente para reflejar que, a mayor tamaño del requisito, mayor es la incertidumbre matemática.
+### 1.3. Tallaje por Complejidad: Puntos de Historia (Story Points - SP)
+Un **Punto de Historia** es una unidad de medida abstracta que combina:
+1. **Complejidad Algorítmica y Técnica.**
+2. **Volumen de Esfuerzo Operativo.**
+3. **Incertidumbre y Riesgos de Integración.**
+
+### 1.4. Derivación Cuantitativa: Tiempo, Esfuerzo y Costos
+Para convertir Story Points abstractos en variables de presupuesto comercial:
+* **Velocidad del Equipo ($V$):** Promedio de $SP$ que el equipo puede completar por Sprint (ej. $12 \text{ SP/Sprint}$).
+* **Esfuerzo ($E$):** Calculado en Horas/Hombre ($H/H$) mediante un factor de conversión ($1 \text{ SP} = X \text{ Horas}$).
+* **Costo Financiero Total ($C$):**
+  $$C = E_{\text{totales}} \times \text{Tarifa Horaria del Desarrollador (\$/Hora)}$$
 
 ---
 
 ## 2. Caso de Estudio Modelo: TicketPass
 
-### 2.1. Matriz de Estimación Formal del Backlog
+### 2.1. Parámetros del Equipo de Ingeniería TicketPass
+* **Composición:** 3 Desarrolladores Full-Stack.
+* **Velocidad del Equipo ($V$):** $12 \text{ SP}$ por Sprint (Sprint de 2 semanas).
+* **Factor de Conversión:** $1 \text{ SP} = 8 \text{ Horas/Hombre}$.
+* **Tarifa Profesional Hora/Hombre:** $\$45.000 \text{ COP/Hora}$.
+* **Historia Pivote de Referencia:** `HU03 - Parametrización de Zonas y Precios` ($2 \text{ SP}$).
 
-* **Historia Pivote Seleccionada:** `HU03 - Parametrización de Zonas y Precios de Boletería` ($2 \text{ SP}$).
+### 2.2. Matriz de Estimación Formal, Esfuerzo y Costos
 
-| ID Issue | Historia de Usuario | Categoría MoSCoW | Estimación Cualitativa | Story Points (SP) | Razón del Puntaje (Juicio de Expertos) |
-| :-: | :--- | :-: | :--- | :-: | :--- |
-| **#1** | HU01 - Fila Virtual para Compra | **Must Have** | Alta complejidad | **13 SP** | Alta concurrencia, gestión de colas distribuida y riesgo de infraestructura. |
-| **#2** | HU02 - QR Dinámico para Entradas | **Must Have** | Complejidad media | **5 SP** | Lógica de cifrado simétrico temporal e integración con librería de renderizado. |
-| **#3** | HU03 - Parametrización de Zonas | **Must Have** | Complejidad baja | **2 SP** | **[Pivote]** CRUD estándar de base de datos sin lógica compleja. |
-| **#4** | HU04 - Mapa Interactivo | **Should Have** | Complejidad media-alta | **8 SP** | Manipulación de nodos SVG interactivos y sincronización de estado de asientos. |
-| **#5** | HU05 - Validación en Acceso | **Must Have** | Complejidad baja-media | **3 SP** | Consumo de API REST y lectura de cámara con manejo de errores de red. |
+| ID Issue | Historia de Usuario | Categoría MoSCoW | Tallaje (Story Points) | Esfuerzo Estimado (Horas) | Costo Financiero (COP) | Justificación del Juicio de Expertos |
+| :-: | :--- | :-: | :-: | :-: | :-: | :--- |
+| **#1** | HU01 - Fila Virtual para Compra | **Must Have** | **13 SP** | 104 hrs | $\$4.680.000$ | Alta concurrencia, colas distribuidas en tiempo real y riesgo de servidor. |
+| **#2** | HU02 - QR Dinámico para Entradas | **Must Have** | **5 SP** | 40 hrs | $\$1.800.000$ | Cifrado simétrico temporal y generación de imágenes dinámicas. |
+| **#3** | HU03 - Parametrización de Zonas | **Must Have** | **2 SP** | 16 hrs | $\$720.000$ | **[Pivote]** Operaciones CRUD estándar en base de datos. |
+| **#4** | HU04 - Mapa Interactivo | **Should Have** | **8 SP** | 64 hrs | $\$2.880.000$ | Manipulación de vectores SVG y renderizado de disponibilidad por asiento. |
+| **#5** | HU05 - Validación en Punto de Acceso | **Must Have** | **3 SP** | 24 hrs | $\$1.080.000$ | Consumo de API REST, cámara móvil y respuesta offline. |
+| **TOTAL**| **Backlog Completo** | -- | **31 SP** | **248 hrs** | **$\$11.160.000$** | -- |
 
 ---
 
-## 3. Especificación del Taller Práctico (23-09-2026)
+## 3. Especificación del Taller Práctico (30 de Septiembre)
 
 ### Modalidad y Entregable
-* Trabajo en equipos de desarrollo.
-* **Entregable:** Archivo `DOCS/03_estimacion_formal.md` en el repositorio.
+* Trabajo en los equipos del proyecto.
+* **Entregable:** Crear el archivo `DOCS/03_estimacion_y_costos.md` en su repositorio.
 
 ### Instrucciones Paso a Paso
-1. **Selección de Historia Pivote:** Definir una historia de su backlog como referencia base ($1 \text{ SP}$ o $2 \text{ SP}$).
-2. **Dinámica de Planning Poker:** Estimación individual y debate de consensos para asignar Story Points (Fibonacci) a cada Issue.
-3. **Actualización en GitHub Issues:** Registrar el valor asignado en la estimación dentro de cada Issue de GitHub.
+1. **Definición de Historia Pivote:** Seleccionar de su backlog una historia sencilla como base ($1 \text{ SP}$ o $2 \text{ SP}$).
+2. **Sesión de Planning Poker:** Asignar valores de Fibonacci ($1, 2, 3, 5, 8, 13, 20$) a cada Historia de Usuario en su backlog, argumentando la razón técnica.
+3. **Conversión de Métricas Financieras:** 
+   * Asumir un factor de $1 \text{ SP} = 6 \text{ Horas/Hombre}$.
+   * Asumir una tarifa profesional de **$\$40.000 \text{ COP/Hora}$**.
+   * Calcular las horas totales y el costo económico de cada historia y del backlog general.
+4. **Actualización en GitHub:** Reflejar los Story Points en las etiquetas o títulos de sus GitHub Issues.
 
 ---
 
-## 4. Criterios de Evaluación (5.0 Puntos)
+## 4. Criterios de Evaluación y Rúbrica (5.0 Puntos)
 
-| Criterio | Descripción | Puntaje |
+| Criterio | Descripción Técnica | Puntaje |
 | :--- | :--- | :--- |
-| **Definición de Historia Pivote** | Selección y justificación adecuada de la historia base de comparación en `DOCS/03_estimacion_formal.md`. | 1.5 pts |
-| **Matriz de Planning Poker** | Asignación rigurosa de Story Points con justificación del juicio de expertos para todo el backlog. | 2.0 pts |
-| **Sincronización en GitHub** | Actualización de la estimación formal en los Issues del repositorio. | 1.5 pts |
-
-
-j
+| **Historia Pivote y Planning Poker** | Selección de la historia base y asignación justificada de Story Points en `DOCS/03_estimacion_y_costos.md`. | 2.0 pts |
+| **Proyección de Tiempo, Esfuerzo y Costos** | Fórmulas matemáticamente precisas para el cálculo de Horas/Hombre y Presupuesto Financiero en COP. | 2.0 pts |
+| **Sincronización en GitHub Issues** | Actualización de los puntos de historia en el gestor de tareas del repositorio. | 1.0 pt |
