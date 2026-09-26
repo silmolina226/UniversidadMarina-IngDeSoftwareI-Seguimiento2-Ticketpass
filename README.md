@@ -226,3 +226,5 @@ El **Planning Poker** es una técnica orientada al consenso basada en el Juicio 
 | **Definición de Historia Pivote** | Selección y justificación adecuada de la historia base de comparación en `DOCS/03_estimacion_formal.md`. | 1.5 pts |
 | **Matriz de Planning Poker** | Asignación rigurosa de Story Points con justificación del juicio de expertos para todo el backlog. | 2.0 pts |
 | **Sincronización en GitHub** | Actualización de la estimación formal en los Issues del repositorio. | 1.5 pts |
+
+
