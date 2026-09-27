@@ -172,67 +172,133 @@ El **Producto Mínimo Viable (MVP)** para el lanzamiento de **TicketPass** se co
 
 ---
 
-## 1. Marco Teórico y Conceptos Clave
+## 1. Marco Teórico y Fundamentos Matemáticos
 
 ### 1.1. De la Estimación Empírica a la Estimación Formal
-En la sesión anterior realizamos una categorización cualitativa (Baja, Media, Alta). En esta fase transitamos a la **Estimación Formal Cuantitativa**, la cual busca reducir la incertidumbre mediante métricas estandarizadas, matemáticas de capacidad y consenso de equipo.
+En la sesión previa utilizamos un tallaje cualitativo (Bajo, Medio, Alto). En la **Estimación Formal**, convertimos la incertidumbre en métricas cuantitativas reproducibles mediante el **Juicio de Expertos** y la técnica **Planning Poker**.
 
-### 1.2. Juicio de Expertos y Planning Poker
-El **Juicio de Expertos** aprovecha la experiencia acumulada de los ingenieros para evaluar requisitos ambiguos. Para evitar sesgos de autoridad, se utiliza **Planning Poker**, una técnica guiada por la secuencia de **Fibonacci Modificada** ($0.5, 1, 2, 3, 5, 8, 13, 20, 40, 100$):
-* **Historia Pivote (Referencia):** Se elige una historia de complejidad mínima conocida y se le asigna un valor base (ej. $2 \text{ SP}$).
-* **Escalabilidad del Riesgo:** El salto entre números aumenta exponencialmente para reflejar que, a mayor tamaño o complejidad de un requisito, mayor es el riesgo matemático de desviación.
+### 1.2. ¿De dónde salen los Story Points (SP)?
+Un **Punto de Historia (Story Point - SP)** NO es una hora de trabajo. Es una unidad abstracta que mide la **Carga Global de Desarrollo**, la cual resulta de evaluar tres componentes:
 
-### 1.3. Tallaje por Complejidad: Puntos de Historia (Story Points - SP)
-Un **Punto de Historia** es una unidad de medida abstracta que combina:
-1. **Complejidad Algorítmica y Técnica.**
-2. **Volumen de Esfuerzo Operativo.**
-3. **Incertidumbre y Riesgos de Integración.**
+$$\text{Story Point (SP)} = \text{Complejidad Algorítmica} + \text{Volumen de Trabajo} + \text{Incertidumbre / Riesgo Técnico}$$
 
-### 1.4. Derivación Cuantitativa: Tiempo, Esfuerzo y Costos
-Para convertir Story Points abstractos en variables de presupuesto comercial:
-* **Velocidad del Equipo ($V$):** Promedio de $SP$ que el equipo puede completar por Sprint (ej. $12 \text{ SP/Sprint}$).
-* **Esfuerzo ($E$):** Calculado en Horas/Hombre ($H/H$) mediante un factor de conversión ($1 \text{ SP} = X \text{ Horas}$).
-* **Costo Financiero Total ($C$):**
-  $$C = E_{\text{totales}} \times \text{Tarifa Horaria del Desarrollador (\$/Hora)}$$
+Para estimar en equipo sin sesgos de autoridad, se usa la **Secuencia de Fibonacci Modificada**:
+
+$$\text{Escala de Cartas Planning Poker} = \{0.5,\ 1,\ 2,\ 3,\ 5,\ 8,\ 13,\ 20,\ 40,\ 100\}$$
+
+#### Método de Asignación por Historia Pivote (Paso a Paso):
+1. **Selección de la Historia Pivote:** El equipo toma la Historia de Usuario más sencilla y mejor comprendida del backlog. A esta historia se le asigna arbitrariamente un valor base de referencia (ejemplo: $2\text{ SP}$).
+2. **Comparación Relativa (Planning Poker):** Cada nueva historia se compara directamente contra la Pivote:
+   * *¿Es igual de compleja que la pivote?* $\rightarrow$ Se le asignan $2\text{ SP}$.
+   * *¿Requiere el doble de esfuerzo y tiene más riesgo?* $\rightarrow$ Se evalúa la carta de $5\text{ SP}$.
+   * *¿Es una funcionalidad crítica, con alta incertidumbre y algoritmos complejos?* $\rightarrow$ Se evalúa en $8\text{ SP}$ o $13\text{ SP}$.
+
+### 1.3. Fórmulas de Conversión a Tiempo, Esfuerzo y Presupuesto
+Una vez asignados los $SP$ a cada historia de usuario, se aplican de forma rigurosa las siguientes tres fórmulas matemáticas:
+
+#### FÓRMULA 1: Esfuerzo Total en Horas/Hombre ($E_i$)
+Calcula la cantidad total de horas de trabajo requeridas para desarrollar una historia $i$, multiplicando sus Story Points por el **Factor de Conversión ($F_c$)** acordado por el equipo (por ejemplo, $1\text{ SP} = 8\text{ Horas}$):
+
+$$E_i = \text{SP}_i \times F_c \quad [\text{Horas/Hombre}]$$
+
+#### FÓRMULA 2: Costo Financiero de la Historia ($C_i$)
+Calcula el precio comercial en pesos colombianos ($COP$) de la historia $i$, multiplicando el esfuerzo en horas por la **Tarifa Horaria del Desarrollador ($T_h$)**:
+
+$$C_i = E_i \times T_h \quad [\text{COP}]$$
+
+#### FÓRMULA 3: Presupuesto Total del Proyecto ($C_{\text{total}}$) e Inversión Total de Horas ($E_{\text{total}}$)
+Resulta de la sumatoria simple de todas las historias del backlog ($n$ historias):
+
+$$E_{\text{total}} = \sum_{i=1}^{n} E_i \quad [\text{Horas/Hombre}]$$
+
+$$C_{\text{total}} = \sum_{i=1}^{n} C_i \quad [\text{COP}]$$
 
 ---
 
-## 2. Caso de Estudio Modelo: TicketPass
+## 2. Demostración Paso a Paso con el Caso TicketPass
 
-### 2.1. Parámetros del Equipo de Ingeniería TicketPass
-* **Composición:** 3 Desarrolladores Full-Stack.
-* **Velocidad del Equipo ($V$):** $12 \text{ SP}$ por Sprint (Sprint de 2 semanas).
-* **Factor de Conversión:** $1 \text{ SP} = 8 \text{ Horas/Hombre}$.
-* **Tarifa Profesional Hora/Hombre:** $\$45.000 \text{ COP/Hora}$.
-* **Historia Pivote de Referencia:** `HU03 - Parametrización de Zonas y Precios` ($2 \text{ SP}$).
+### 2.1. Definición de Parámetros Comerciales y Técnicos
+* **Composición del Equipo:** 3 Desarrolladores Full-Stack.
+* **Historia Pivote de Referencia:** `HU03 - Parametrización de Zonas y Precios` = $2\text{ SP}$.
+* **Factor de Conversión del Equipo ($F_c$):** $1\text{ SP} = 8\text{ Horas/Hombre}$.
+* **Tarifa Profesional Hora/Hombre ($T_h$):** $\$45.000\text{ COP/Hora}$.
 
-### 2.2. Matriz de Estimación Formal, Esfuerzo y Costos
+---
 
-| ID Issue | Historia de Usuario | Categoría MoSCoW | Tallaje (Story Points) | Esfuerzo Estimado (Horas) | Costo Financiero (COP) | Justificación del Juicio de Expertos |
-| :-: | :--- | :-: | :-: | :-: | :-: | :--- |
-| **#1** | HU01 - Fila Virtual para Compra | **Must Have** | **13 SP** | 104 hrs | $\$4.680.000$ | Alta concurrencia, colas distribuidas en tiempo real y riesgo de servidor. |
-| **#2** | HU02 - QR Dinámico para Entradas | **Must Have** | **5 SP** | 40 hrs | $\$1.800.000$ | Cifrado simétrico temporal y generación de imágenes dinámicas. |
-| **#3** | HU03 - Parametrización de Zonas | **Must Have** | **2 SP** | 16 hrs | $\$720.000$ | **[Pivote]** Operaciones CRUD estándar en base de datos. |
-| **#4** | HU04 - Mapa Interactivo | **Should Have** | **8 SP** | 64 hrs | $\$2.880.000$ | Manipulación de vectores SVG y renderizado de disponibilidad por asiento. |
-| **#5** | HU05 - Validación en Punto de Acceso | **Must Have** | **3 SP** | 24 hrs | $\$1.080.000$ | Consumo de API REST, cámara móvil y respuesta offline. |
-| **TOTAL**| **Backlog Completo** | -- | **31 SP** | **248 hrs** | **$\$11.160.000$** | -- |
+### 2.2. Desglose Matemático Detallado Historia por Historia
+
+#### Historia #1: `HU01 - Fila Virtual para Compra de Boletas`
+* **Puntaje Planning Poker:** Se vota **$13\text{ SP}$** (Complejidad alta por concurrencia masiva, manejo de colas distribuidas y riesgo de caída de servidor).
+* **Cálculo de Esfuerzo ($E_1$):**
+  $$E_1 = 13\text{ SP} \times 8\text{ Horas/SP} = 104\text{ Horas/Hombre}$$
+* **Cálculo de Costo ($C_1$):**
+  $$C_1 = 104\text{ Horas} \times \$45.000\text{ COP/Hora} = \$4.680.000\text{ COP}$$
+
+#### Historia #2: `HU02 - Generación de Código QR Dinámico para Entradas`
+* **Puntaje Planning Poker:** Se vota **$5\text{ SP}$** (Complejidad media: cifrado simétrico con token temporal de 30 segundos y generación de imagen).
+* **Cálculo de Esfuerzo ($E_2$):**
+  $$E_2 = 5\text{ SP} \times 8\text{ Horas/SP} = 40\text{ Horas/Hombre}$$
+* **Cálculo de Costo ($C_2$):**
+  $$C_2 = 40\text{ Horas} \times \$45.000\text{ COP/Hora} = \$1.800.000\text{ COP}$$
+
+#### Historia #3: `HU03 - Parametrización de Zonas y Precios por Evento`
+* **Puntaje Planning Poker:** **$2\text{ SP}$** (Historia Pivote: Operaciones CRUD estándar en base de datos sin mayor riesgo).
+* **Cálculo de Esfuerzo ($E_3$):**
+  $$E_3 = 2\text{ SP} \times 8\text{ Horas/SP} = 16\text{ Horas/Hombre}$$
+* **Cálculo de Costo ($C_3$):**
+  $$C_3 = 16\text{ Horas} \times \$45.000\text{ COP/Hora} = \$720.000\text{ COP}$$
+
+#### Historia #4: `HU04 - Mapa Interactivo del Recinto y Selección de Asientos`
+* **Puntaje Planning Poker:** Se vota **$8\text{ SP}$** (Complejidad media-alta: manipulación de vectores SVG y sincronización de disponibilidad de sillas en tiempo real).
+* **Cálculo de Esfuerzo ($E_4$):**
+  $$E_4 = 8\text{ SP} \times 8\text{ Horas/SP} = 64\text{ Horas/Hombre}$$
+* **Cálculo de Costo ($C_4$):**
+  $$C_4 = 64\text{ Horas} \times \$45.000\text{ COP/Hora} = \$2.880.000\text{ COP}$$
+
+#### Historia #5: `HU05 - Validación de Boletas en Punto de Acceso (Escáner Mobile)`
+* **Puntaje Planning Poker:** Se vota **$3\text{ SP}$** (Complejidad baja-media: consumo de cámara web/móvil, desencriptación del QR y consulta REST con soporte en caché).
+* **Cálculo de Esfuerzo ($E_5$):**
+  $$E_5 = 3\text{ SP} \times 8\text{ Horas/SP} = 24\text{ Horas/Hombre}$$
+* **Cálculo de Costo ($C_5$):**
+  $$C_5 = 24\text{ Horas} \times \$45.000\text{ COP/Hora} = \$1.080.000\text{ COP}$$
+
+---
+
+### 2.3. Consolidado Matrimonial de Totales TicketPass
+
+$$\text{Total SP} = 13 + 5 + 2 + 8 + 3 = \mathbf{31\text{ SP}}$$
+
+$$E_{\text{total}} = 104 + 40 + 16 + 64 + 24 = \mathbf{248\text{ Horas/Hombre}}$$
+
+$$C_{\text{total}} = \$4.680.000 + \$1.800.000 + \$720.000 + \$2.880.000 + \$1.080.000 = \mathbf{\$11.160.000\text{ COP}}$$
+
+#### Matriz Resumen Consolidada:
+
+| ID Issue | Historia de Usuario | Categoría MoSCoW | Story Points (SP) | Factor $F_c$ | Esfuerzo ($E_i$) | Tarifa ($T_h$) | Costo Financiero ($C_i$) | Justificación Juicio de Expertos |
+| :-: | :--- | :-: | :-: | :-: | :-: | :-: | :-: | :--- |
+| **#1** | HU01 - Fila Virtual | **Must Have** | **13 SP** | 8 hrs/SP | 104 hrs | $\$45.000$ | $\$4.680.000$ COP | Alta concurrencia, colas y riesgo de caída. |
+| **#2** | HU02 - QR Dinámico | **Must Have** | **5 SP** | 8 hrs/SP | 40 hrs | $\$45.000$ | $\$1.800.000$ COP | Cifrado simétrico temporal y tokenización. |
+| **#3** | HU03 - Parametrización | **Must Have** | **2 SP** | 8 hrs/SP | 16 hrs | $\$45.000$ | $\$720.000$ COP | **[Pivote Base]** Operaciones CRUD simples. |
+| **#4** | HU04 - Mapa Interactivo | **Should Have** | **8 SP** | 8 hrs/SP | 64 hrs | $\$45.000$ | $\$2.880.000$ COP | Gráficos SVG interactivos en tiempo real. |
+| **#5** | HU05 - Escáner Punto Acceso | **Must Have** | **3 SP** | 8 hrs/SP | 24 hrs | $\$45.000$ | $\$1.080.000$ COP | Consumo de cámara, API y caché local. |
+| **TOTAL** | **Backlog Completo** | -- | **31 SP** | -- | **248 hrs** | -- | **$\$11.160.000$ COP** | **Proyecto Completo Estimado** |
 
 ---
 
 ## 3. Especificación del Taller Práctico (30 de Septiembre)
 
 ### Modalidad y Entregable
-* Trabajo en los equipos del proyecto.
-* **Entregable:** Crear el archivo `DOCS/03_estimacion_y_costos.md` en su repositorio.
+* Trabajo colaborativo en el repositorio del proyecto.
+* **Ruta del Entregable:** Crear el archivo `DOCS/03_estimacion_y_costos.md`.
 
 ### Instrucciones Paso a Paso
-1. **Definición de Historia Pivote:** Seleccionar de su backlog una historia sencilla como base ($1 \text{ SP}$ o $2 \text{ SP}$).
-2. **Sesión de Planning Poker:** Asignar valores de Fibonacci ($1, 2, 3, 5, 8, 13, 20$) a cada Historia de Usuario en su backlog, argumentando la razón técnica.
-3. **Conversión de Métricas Financieras:** 
-   * Asumir un factor de $1 \text{ SP} = 6 \text{ Horas/Hombre}$.
-   * Asumir una tarifa profesional de **$\$40.000 \text{ COP/Hora}$**.
-   * Calcular las horas totales y el costo económico de cada historia y del backlog general.
-4. **Actualización en GitHub:** Reflejar los Story Points en las etiquetas o títulos de sus GitHub Issues.
+1. **Definir la Historia Pivote del Grupo:** Elegir de su backlog la historia más sencilla y asignarle $1\text{ SP}$ o $2\text{ SP}$.
+2. **Aplicar Planning Poker:** Discutir y asignar valores de la serie de Fibonacci ($1, 2, 3, 5, 8, 13, 20$) a cada una de sus historias de usuario.
+3. **Parámetros Obligatorios para la Clase:**
+   * Usar un **Factor de Conversión:** $1\text{ SP} = 6\text{ Horas/Hombre}$.
+   * Usar una **Tarifa Profesional:** $\$40.000\text{ COP/Hora}$.
+4. **Cálculos Obligatorios:** Aplicar las Fórmulas 1, 2 y 3 para hallar el esfuerzo en horas y el costo en COP historia por historia y los totales globales.
+5. **Actualización en GitHub:** Editar los títulos de sus GitHub Issues agregando el puntaje estimado entre corchetes (Ejemplo: `[5 SP] HU02 - Registro de Usuarios`).
 
 ---
 
@@ -240,9 +306,9 @@ Para convertir Story Points abstractos en variables de presupuesto comercial:
 
 | Criterio | Descripción Técnica | Puntaje |
 | :--- | :--- | :--- |
-| **Historia Pivote y Planning Poker** | Selección de la historia base y asignación justificada de Story Points en `DOCS/03_estimacion_y_costos.md`. | 2.0 pts |
-| **Proyección de Tiempo, Esfuerzo y Costos** | Fórmulas matemáticamente precisas para el cálculo de Horas/Hombre y Presupuesto Financiero en COP. | 2.0 pts |
-| **Sincronización en GitHub Issues** | Actualización de los puntos de historia en el gestor de tareas del repositorio. | 1.0 pt |
+| **Asignación de Pivote y Planning Poker** | Identificación clara de la historia pivote y justificación argumentada del puntaje $SP$ para cada historia en `DOCS/03_estimacion_y_costos.md`. | 2.0 pts |
+| **Exactitud en Cálculos de Tiempo, Esfuerzo y Costo** | Aplicación correcta de las fórmulas de multiplicación ($E_i$ y $C_i$) y sumatorias globales ($E_{\text{total}}$ y $C_{\text{total}}$) sin errores numéricos. | 2.0 pts |
+| **Sincronización en GitHub Issues** | Marcación formal de los Story Points en las etiquetas o títulos de las tareas en GitHub. | 1.0 pt |
 
 ---
 
@@ -251,10 +317,130 @@ Para convertir Story Points abstractos en variables de presupuesto comercial:
 
 ---
 
-## 1. Marco Teórico y Conceptos Clave
+## 1. Marco Teórico y Fundamentos Metodológicos
 
-### 1.1. Procesos de Software y Ciclo de Vida (SDLC)
-Un **Proceso de Software** es un conjunto estructurado de actividades de ingeniería (Análisis, Diseño, Construcción, Pruebas y Despliegue) orientadas a transformar necesidades del cliente en productos ejecutables con calidad.
+### 1.1. ¿Qué es un Proceso de Software?
+Un **Proceso de Software** es el conjunto estructurado de actividades de ingeniería (Análisis de Requisitos, Diseño de Arquitectura, Construcción de Código, Pruebas y Despliegue) ejecutadas de forma metódica para construir productos funcionales de alta calidad.
 
-### 1.2. Modelos de Proceso de Software
-La elección del modelo define cómo se gestionan los cambios y los riesgos durante la construcción:
+### 1.2. Cuadro Comparativo de Modelos de Proceso
+| Modelo de Proceso | Filosofía de Trabajo | Manejo del Cambio | Ideal Para... |
+| :--- | :--- | :--- | :--- |
+| **Cascada (Waterfall)** | Lineal y secuencial. No se avanza a la siguiente fase sin congelar la previa. | Muy rígido y costoso. | Sistemas críticos o regulados (ej. software médico, aeronáutico). |
+| **Incremental** | El sistema se divide en módulos y se entrega por partes funcionales en fases. | Moderadamente flexible. | Proyectos con componentes independientes bien definidos. |
+| **Espiral (Boehm)** | Guiado por la identificación, análisis y mitigación de riesgos técnicos en cada ciclo. | Muy adaptativo según riesgos. | Proyectos complejos con alto nivel de innovación o incertidumbre. |
+| **Scrum (Marco Ágil)** | Iterativo e incremental. Trabajo organizado en bloques fijos (*Sprints* de 2 semanas). | Altamente adaptativo. | Software comercial, startups y entornos de alta variabilidad. |
+
+---
+
+### 1.3. Fórmulas de Planificación: Velocidad, Sprints y Cronograma
+Para convertir los Story Points estimados en la clase anterior en una línea base de tiempo estructurada por Sprints:
+
+#### FÓRMULA 1: Velocidad del Equipo ($V$)
+Es la cantidad de Story Points que el equipo de desarrollo compromete y termina en un Sprint:
+
+$$V = \text{Puntos de Historia comisionados por Sprint} \quad [\text{SP/Sprint}]$$
+
+#### FÓRMULA 2: Duración en Sprints del MVP ($N_{\text{Sprints}}$)
+Determina el número de iteraciones requeridas para terminar las historias prioritarias (**Must Have**), dividiendo los $SP$ del MVP entre la velocidad del equipo:
+
+$$N_{\text{Sprints}} = \frac{\sum \text{SP}_{\text{Must Have}}}{V}$$
+
+*Nota: Si el resultado tiene decimales, se redondea hacia arriba al entero superior (ejemplo: $1.83 \rightarrow 2\text{ Sprints}$).*
+
+#### FÓRMULA 3: Tiempo Total de Desarrollo en Semanas ($T_{\text{semanas}}$)
+Multiplica el número de Sprints por la duración de cada Sprint en semanas (estándar: 2 semanas por Sprint):
+
+$$T_{\text{semanas}} = N_{\text{Sprints}} \times \text{Duración del Sprint (semanas)}$$
+
+---
+
+## 2. Demostración Paso a Paso con el Caso TicketPass
+
+### 2.1. Selección y Justificación del Modelo de Proceso
+Se selecciona el marco **Scrum (Ágil)**.
+* **Justificación:** TicketPass es una plataforma comercial expuesta a alta competencia. Se necesita lanzar un **Producto Mínimo Viable (MVP)** al mercado en el menor tiempo posible para validar ventas y boleta digital, dejando funcionalidades avanzadas (como el mapa SVG interactivo) para incrementos posteriores.
+
+### 2.2. Determinación de los Parámetros del Proyecto TicketPass
+* **Backlog Completo:** $31\text{ SP}$ (5 Historias de Usuario).
+* **Historias del MVP (Prioridad Must Have):**
+  * `HU01 - Fila Virtual`: $13\text{ SP}$
+  * `HU02 - QR Dinámico`: $5\text{ SP}$
+  * `HU03 - Parametrización`: $2\text{ SP}$
+  * `HU05 - Escáner Punto Acceso`: $3\text{ SP}$
+  * **Total SP del MVP:** $13 + 5 + 2 + 3 = \mathbf{23\text{ SP}}$
+* **Historias del Backlog Extendido (Prioridad Should Have):**
+  * `HU04 - Mapa Interactivo`: $\mathbf{8\text{ SP}}$
+* **Velocidad Acordada del Equipo TicketPass ($V$):** $12\text{ SP/Sprint}$.
+* **Duración de Cada Sprint:** 2 Semanas (80 Horas hábiles por desarrollador).
+
+---
+
+### 2.3. Cálculos del Plan de Proyecto TicketPass
+
+#### 1. Cálculo de Sprints para el MVP:
+$$N_{\text{Sprints}} = \frac{23\text{ SP (MVP)}}{12\text{ SP/Sprint}} = 1.91 \longrightarrow \mathbf{2\text{ Sprints}}$$
+
+#### 2. Cálculo del Tiempo de Desarrollo del MVP en Semanas:
+$$T_{\text{semanas (MVP)}} = 2\text{ Sprints} \times 2\text{ Semanas/Sprint} = \mathbf{4\text{ Semanas}}$$
+
+#### 3. Cálculo de Sprints para el Proyecto Completo ($31\text{ SP}$):
+$$N_{\text{Sprints Total}} = \frac{31\text{ SP}}{12\text{ SP/Sprint}} = 2.58 \longrightarrow \mathbf{3\text{ Sprints (6 Semanas)}}$$
+
+---
+
+### 2.4. Estructuración del Cronograma de Sprints (Línea Base MVP)
+
+#### Sprint 1 (Semanas 1 y 2) · Capacidad Máxima: $12\text{ SP}$
+* **Historias Asignadas:**
+  * `HU03 - Parametrización de Zonas` ($2\text{ SP}$)
+  * `HU01 - Fila Virtual` (Módulo base) ($10\text{ SP}$)
+* **Carga del Sprint:** $2 + 10 = \mathbf{12\text{ SP}}$ (100% de la velocidad).
+* **Esfuerzo:** $12\text{ SP} \times 8\text{ hrs/SP} = 96\text{ Horas/Hombre}$.
+* **Costo Sprint 1:** $96\text{ hrs} \times \$45.000 = \mathbf{\$4.320.000\text{ COP}}$.
+
+#### Sprint 2 (Semanas 3 y 4) · Capacidad Máxima: $12\text{ SP}$
+* **Historias Asignadas:**
+  * `HU01 - Fila Virtual` (Módulo avanzado de cierre) ($3\text{ SP}$)
+  * `HU02 - QR Dinámico` ($5\text{ SP}$)
+  * `HU05 - Escáner Punto Acceso` ($3\text{ SP}$)
+* **Carga del Sprint:** $3 + 5 + 3 = \mathbf{11\text{ SP}}$ (Dentro del límite de $12\text{ SP}$).
+* **Esfuerzo:** $11\text{ SP} \times 8\text{ hrs/SP} = 88\text{ Horas/Hombre}$.
+* **Costo Sprint 2:** $88\text{ hrs} \times \$45.000 = \mathbf{\$3.960.000\text{ COP}}$.
+
+#### Sprint 3 (Semanas 5 y 6 - Extensión) · Capacidad Máxima: $12\text{ SP}$
+* **Historia Asignada:**
+  * `HU04 - Mapa Interactivo` ($8\text{ SP}$)
+* **Carga del Sprint:** $\mathbf{8\text{ SP}}$.
+* **Esfuerzo:** $8\text{ SP} \times 8\text{ hrs/SP} = 64\text{ Horas/Hombre}$.
+* **Costo Sprint 3:** $64\text{ hrs} \times \$45.000 = \mathbf{\$2.880.000\text{ COP}}$.
+
+---
+
+### 2.5. Resumen Financiero y Cronograma Comercial
+* **Costo Total del MVP (Sprints 1 y 2):** $\$4.320.000 + \$3.960.000 = \mathbf{\$8.280.000\text{ COP}}$ ($184\text{ Horas}$, $4\text{ Semanas}$).
+* **Costo Total del Proyecto Completo (Sprints 1, 2 y 3):** $\$8.280.000 + \$2.880.000 = \mathbf{\$11.160.000\text{ COP}}$ ($248\text{ Horas}$, $6\text{ Semanas}$).
+
+---
+
+## 3. Especificación del Taller Práctico (07 de Octubre)
+
+### Modalidad y Entregable
+* Trabajo colaborativo en el repositorio del proyecto.
+* **Ruta del Entregable:** Crear el archivo `DOCS/04_plan_de_proyecto_y_modelos.md`.
+
+### Instrucciones Paso a Paso
+1. **Seleccionar el Modelo de Proceso:** Escoger entre Cascada, Incremental, Espiral o Scrum y redactar un texto justificando la elección en función de su proyecto.
+2. **Definir la Velocidad del Equipo ($V$):** Asumir una velocidad para su grupo (ejemplo: $V = 10\text{ SP/Sprint}$).
+3. **Calcular Sprints y Duración del MVP:** Separar sus historias Must Have ($SP_{\text{MVP}}$), dividirlas entre $V$ y determinar el número de Sprints y semanas totales.
+4. **Organizar la Distribución de Sprints:** Detallar qué historias entran en cada Sprint sin sobrepasar la velocidad $V$.
+5. **Consolidar el Resumen Comercial:** Indicar el costo en COP y tiempo en semanas tanto para el MVP como para el proyecto completo.
+
+---
+
+## 4. Criterios de Evaluación y Rúbrica (5.0 Puntos)
+
+| Criterio | Descripción Técnica | Puntaje |
+| :--- | :--- | :--- |
+| **Análisis y Justificación del Modelo de Proceso** | Comparación metodológica y argumentación técnica de la elección en `DOCS/04_plan_de_proyecto_y_modelos.md`. | 2.0 pts |
+| **Estructuración y Matemática de Sprints (MVP)** | Aplicación exacta de las fórmulas de velocidad, cálculo de Sprints y distribución de historias sin sobrepasar la capacidad $V$. | 1.5 pts |
+| **Resumen Ejecutivo y Comercial Consolidado** | Consolidación clara de semanas, esfuerzo acumulado en hor
