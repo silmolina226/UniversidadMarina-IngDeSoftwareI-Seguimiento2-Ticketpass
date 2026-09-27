@@ -1,4 +1,4 @@
-# DOCS/03_estimacion_y_costos.md: Estimación Formal y Presupuesto
+Estimación Formal y Presupuesto
 
 ## 1. Parámetros Base de Estimación
 * **Historia Pivote Seleccionada:** [Nombre e ID de la HU Pivote]
