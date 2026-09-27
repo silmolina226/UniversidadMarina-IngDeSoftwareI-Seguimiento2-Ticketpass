@@ -243,3 +243,18 @@ Para convertir Story Points abstractos en variables de presupuesto comercial:
 | **Historia Pivote y Planning Poker** | Selección de la historia base y asignación justificada de Story Points en `DOCS/03_estimacion_y_costos.md`. | 2.0 pts |
 | **Proyección de Tiempo, Esfuerzo y Costos** | Fórmulas matemáticamente precisas para el cálculo de Horas/Hombre y Presupuesto Financiero en COP. | 2.0 pts |
 | **Sincronización en GitHub Issues** | Actualización de los puntos de historia en el gestor de tareas del repositorio. | 1.0 pt |
+
+---
+
+# Unidad 2: Estimación Formal en la Construcción de Software
+## Guía de Aprendizaje - Clase 4: Procesos de Software, Modelos de Proceso y Plan del Proyecto
+
+---
+
+## 1. Marco Teórico y Conceptos Clave
+
+### 1.1. Procesos de Software y Ciclo de Vida (SDLC)
+Un **Proceso de Software** es un conjunto estructurado de actividades de ingeniería (Análisis, Diseño, Construcción, Pruebas y Despliegue) orientadas a transformar necesidades del cliente en productos ejecutables con calidad.
+
+### 1.2. Modelos de Proceso de Software
+La elección del modelo define cómo se gestionan los cambios y los riesgos durante la construcción:
