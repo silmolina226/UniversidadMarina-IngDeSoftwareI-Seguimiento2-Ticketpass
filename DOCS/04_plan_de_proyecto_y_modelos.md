@@ -1,4 +1,4 @@
-# DOCS/04_plan_de_proyecto_y_modelos.md: Plan de Proyecto y Modelos de Proceso
+# Estimación del Plan de Proyecto y Modelos de Proceso - Proyecto TicketPass
 
 ## 1. Selección y Justificación del Modelo de Proceso
 [Redacción argumentativa de mínimo 150 palabras justificando por qué eligieron Cascada, Incremental, Espiral o Scrum para su proyecto].
