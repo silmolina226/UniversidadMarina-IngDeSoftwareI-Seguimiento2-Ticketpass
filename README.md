@@ -166,7 +166,7 @@ El **Producto Mínimo Viable (MVP)** para el lanzamiento de **TicketPass** se co
 | **Estimación Empírica Cualitativa** | Identificación coherente de los niveles de complejidad (Baja/Media/Alta) para cada historia. | 1.0 pt |
 | **Co-evaluación / Feedback Cruzado** | Participación activa en la validación y comparación de backlogs entre equipos. | 1.0 pt |
 
-
+---
 # Unidad 2: Estimación Formal en la Construcción de Software
 ## Guía de Aprendizaje - Clase 3: Estimación Formal, Juicio de Expertos, Tiempo, Esfuerzo y Costos
 
@@ -243,4 +243,3 @@ Para convertir Story Points abstractos en variables de presupuesto comercial:
 | **Historia Pivote y Planning Poker** | Selección de la historia base y asignación justificada de Story Points en `DOCS/03_estimacion_y_costos.md`. | 2.0 pts |
 | **Proyección de Tiempo, Esfuerzo y Costos** | Fórmulas matemáticamente precisas para el cálculo de Horas/Hombre y Presupuesto Financiero en COP. | 2.0 pts |
 | **Sincronización en GitHub Issues** | Actualización de los puntos de historia en el gestor de tareas del repositorio. | 1.0 pt |
-jj
