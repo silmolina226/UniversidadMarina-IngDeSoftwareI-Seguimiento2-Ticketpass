@@ -15,3 +15,4 @@
 ## 3. Totales del Proyecto
 * **Puntos de Historia Totales:** XX SP.
 * **Esfuerzo Total del Proyecto:** XX Horas/Hombre.
+* **Presupuesto Comercial Estimado:** $XX.XXX.XXX COP.
