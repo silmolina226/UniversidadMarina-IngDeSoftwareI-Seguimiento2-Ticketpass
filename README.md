@@ -228,14 +228,14 @@ Calcula el total de horas requeridas para construir la historia $i$:
 
 $$E_i = \text{SP}_i \times F_c \quad [\text{Horas}]$$
 
-*(Donde $F_c = 8\text{ Horas/SP}$ es el Factor de Conversión).*
+*(Donde **F_c = 8 Horas/SP** es el Factor de Conversión).*
 
 #### FÓRMULA 2: Costo Financiero por Historia ($C_i$)
 Calcula el costo en Pesos Colombianos (COP) de la historia $i$:
 
 $$C_i = E_i \times T_h \quad [\text{COP}]$$
 
-*(Donde $T_h = \$45.000\text{ COP/Hora}$ es la Tarifa Horaria).*
+*(Donde **T_h = 45.000 COP/Hora** es la Tarifa Horaria).*
 
 #### FÓRMULA 3: Sumatorias Totales del Proyecto ($E_{\text{total}}$ y $C_{\text{total}}$)
 Calcula el esfuerzo acumulado y el presupuesto global del proyecto sumando los resultados de cada una de las $n$ historias:
