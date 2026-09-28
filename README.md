@@ -167,116 +167,150 @@ El **Producto Mínimo Viable (MVP)** para el lanzamiento de **TicketPass** se co
 | **Co-evaluación / Feedback Cruzado** | Participación activa en la validación y comparación de backlogs entre equipos. | 1.0 pt |
 
 ---
+Markdown
 # Unidad 2: Estimación Formal en la Construcción de Software
 ## Guía de Aprendizaje - Clase 3: Estimación Formal, Juicio de Expertos, Tiempo, Esfuerzo y Costos
 
 ---
 
-## 1. Marco Teórico y Fundamentos Matemáticos
+## 1. Organización del Equipo de Trabajo (Asignación de Roles)
 
-### 1.1. De la Estimación Empírica a la Estimación Formal
-En la sesión previa utilizamos un tallaje cualitativo (Bajo, Medio, Alto). En la **Estimación Formal**, convertimos la incertidumbre en métricas cuantitativas reproducibles mediante el **Juicio de Expertos** y la técnica **Planning Poker**.
+Dado que cada equipo de trabajo consta de **4 integrantes**, antes de iniciar el proceso de estimación deben asignar explícitamente los siguientes roles:
 
-### 1.2. ¿De dónde salen los Story Points (SP)?
-Un **Punto de Historia (Story Point - SP)** NO es una hora de trabajo. Es una unidad abstracta que mide la **Carga Global de Desarrollo**, la cual resulta de evaluar tres componentes:
+* **Product Owner (PO):** Representa la voz del cliente y del negocio. Su responsabilidad en esta clase es explicar el alcance de cada Historia de Usuario, aclarar dudas funcionales al equipo y velar porque la estimación técnica respete las prioridades del negocio.
+* **Líder Técnico / Lead Dev:** Desarrollador(a) con criterio de arquitectura. Se encarga de guiar las discusiones técnicas, resolver empates durante las votaciones de estimación y validar que las Historias de Usuario sean técnicamente viables.
+* **Desarrollador(a) 1 y Desarrollador(a) 2:** Encargados(as) de evaluar el esfuerzo real de codificación, consultas e integración con bases de datos, lógica de negocio, interfaces de usuario y pruebas unitarias necesarias para entregar una funcionalidad terminada.
 
-$$\text{Story Point (SP)} = \text{Complejidad Algorítmica} + \text{Volumen de Trabajo} + \text{Incertidumbre / Riesgo Técnico}$$
+---
 
-Para estimar en equipo sin sesgos de autoridad, se usa la **Secuencia de Fibonacci Modificada**:
+## 2. Marco Teórico y Fundamentos Matemáticos
 
-$$\text{Escala de Cartas Planning Poker} = \{0.5,\ 1,\ 2,\ 3,\ 5,\ 8,\ 13,\ 20,\ 40,\ 100\}$$
+### 2.1. ¿Qué es el Product Backlog y cómo se relaciona con el MVP?
+* **Product Backlog (Pila de Producto):** Es el inventario o listado ordenado de todas las **Historias de Usuario (HU)** que representan los requerimientos del proyecto. En nuestro curso, el Backlog corresponde exactamente al conjunto de **GitHub Issues** que ustedes redactaron y priorizaron en las Clases 1 y 2.
+* **Relación con el MVP (Producto Mínimo Viable):** El Backlog contiene funcionalidades esenciales (**Must Have**) e importantes (**Should Have / Could Have**). El **MVP** está conformado por aquellas Historias de Usuario indispensables para que el software funcione comercialmente. Estimar el Backlog completo nos permite saber cuánto cuesta el proyecto total y cuánto cuesta construir únicamente la primera versión entregable (el MVP).
+* **Aclaración sobre Sprints:** Aunque el concepto de *Sprint* se profundizará más adelante en el marco Scrum, en esta clase nos enfocamos exclusivamente en la **estimación del esfuerzo total y presupuesto global del Backlog completo**.
 
-#### Método de Asignación por Historia Pivote (Paso a Paso):
-1. **Selección de la Historia Pivote:** El equipo toma la Historia de Usuario más sencilla y mejor comprendida del backlog. A esta historia se le asigna arbitrariamente un valor base de referencia (ejemplo: $2\text{ SP}$).
-2. **Comparación Relativa (Planning Poker):** Cada nueva historia se compara directamente contra la Pivote:
-   * *¿Es igual de compleja que la pivote?* $\rightarrow$ Se le asignan $2\text{ SP}$.
-   * *¿Requiere el doble de esfuerzo y tiene más riesgo?* $\rightarrow$ Se evalúa la carta de $5\text{ SP}$.
-   * *¿Es una funcionalidad crítica, con alta incertidumbre y algoritmos complejos?* $\rightarrow$ Se evalúa en $8\text{ SP}$ o $13\text{ SP}$.
+### 2.2. ¿Qué son los Story Points (SP) y cómo se derivan?
+Un **Story Point (SP)** NO es un número fijo de horas, sino una **unidad abstracta de medida** que evalúa la **Carga Global de Trabajo** requerida para implementar una Historia de Usuario. 
 
-### 1.3. Fórmulas de Conversión a Tiempo, Esfuerzo y Presupuesto
-Una vez asignados los $SP$ a cada historia de usuario, se aplican de forma rigurosa las siguientes tres fórmulas matemáticas:
+Se calcula considerando tres dimensiones esenciales:
 
-#### FÓRMULA 1: Esfuerzo Total en Horas/Hombre ($E_i$)
-Calcula la cantidad total de horas de trabajo requeridas para desarrollar una historia $i$, multiplicando sus Story Points por el **Factor de Conversión ($F_c$)** acordado por el equipo (por ejemplo, $1\text{ SP} = 8\text{ Horas}$):
+$$\text{Story Point (SP)} = \text{Complejidad Algorítmica} + \text{Volumen de Trabajo} + \text{Incertidumbre o Riesgo Técnico}$$
 
-$$E_i = \text{SP}_i \times F_c \quad [\text{Horas/Hombre}]$$
+### 2.3. Planning Poker y la Secuencia de Fibonacci Modificada
+**Planning Poker** es una técnica gamificada de estimación por consenso diseñada para evitar el *sesgo de autoridad* (impide que el equipo vote mecánicamente lo que diga un solo integrante o el Líder Técnico). 
 
-#### FÓRMULA 2: Costo Financiero de la Historia ($C_i$)
-Calcula el precio comercial en pesos colombianos ($COP$) de la historia $i$, multiplicando el esfuerzo en horas por la **Tarifa Horaria del Desarrollador ($T_h$)**:
+#### ¿Cómo se juega Planning Poker?
+1. El Product Owner lee una Historia de Usuario del Backlog (*GitHub Issue*).
+2. El equipo hace preguntas rápidas para aclarar el alcance de la funcionalidad.
+3. Cada integrante del equipo selecciona de manera secreta una carta con un valor numérico.
+4. Todos muestran su carta al mismo tiempo.
+5. Si hay divergencias (ejemplo: alguien vota $2\text{ SP}$ y otro $8\text{ SP}$), quienes dieron las notas extrema e inferior justifican su punto de vista.
+6. Se vuelve a votar hasta llegar a un consenso en el equipo.
+
+#### ¿Por qué usamos la Secuencia de Fibonacci Modificada ($1, 2, 3, 5, 8, 13, 20...$)?
+Porque en la ingeniería de software **la incertidumbre no crece de manera lineal, sino exponencial**:
+* Distinguir la diferencia entre una tarea de $1\text{ hora}$ y una de $2\text{ horas}$ es sencillo y preciso.
+* Distinguir la diferencia entre una tarea de $13\text{ horas}$ y $14\text{ horas}$ es imposible dada la alta variabilidad del software.
+* Por esta razón, los saltos en la escala ($3 \rightarrow 5 \rightarrow 8 \rightarrow 13$) obligan al equipo a reconocer que, a mayor tamaño y complejidad de la tarea, mayor es el riesgo de error en la estimación.
+
+* **Escala de Votación Planning Poker:** `[ 1 ]` `[ 2 ]` `[ 3 ]` `[ 5 ]` `[ 8 ]` `[ 13 ]` `[ 20 ]` *(Incertidumbre y riesgo creciente)*
+
+### 2.4. Trazabilidad: ¿Cómo se determina la Historia Pivote y las Comparaciones?
+Para evitar estimar a ciegas, se utiliza el método de **Estimación Relativa**:
+
+1. **Paso 1 (Determinación de la Historia Pivote):** El equipo analiza todo su Backlog y selecciona la Historia de Usuario más pequeña, sencilla y mejor comprendida de todas. A esta historia se le asigna arbitrariamente el valor base de **$2\text{ SP}$** (o $1\text{ SP}$).
+2. **Paso 2 (Comparación Relativa contra la Pivote):** Cada nueva historia se compara directamente contra la Pivote:
+   * *¿Es igual de sencilla que la pivote?* $\rightarrow$ Se le asignan **$2\text{ SP}$**.
+   * *¿Requiere el doble de esfuerzo y tiene un poco más de lógica de base de datos?* $\rightarrow$ En la escala de Fibonacci no existe el 4, por lo tanto, el salto natural asciende a **$5\text{ SP}$**.
+   * *¿Es una funcionalidad crítica, con alta incertidumbre, gráficos interactivos o algoritmos complejos?* $\rightarrow$ Se vota en **$8\text{ SP}$** o **$13\text{ SP}$**.
+
+### 2.5. Tarifas de la Industria y Estándares de Software
+* **¿Por qué $1\text{ SP} = 8\text{ Horas}$?** En la industria de software internacional es un estándar altamente aceptado equiparar $1\text{ Punto de Historia}$ con $1\text{ día laboral efectivo}$ de desarrollo ($8\text{ horas de trabajo}$).
+* **Tarifas por Hora de Desarrollador en Colombia y LatAm:**
+  * *Desarrollador Junior / Mid (Colombia):* $\$35.000\text{ a }\$50.000\text{ COP/Hora}$ ($\sim \$8\text{ a }\$12\text{ USD/Hora}$).
+  * *Desarrollador Senior / Lead (LatAm Remote):* $\$80.000\text{ a }\$150.000\text{ COP/Hora}$ ($\sim \$20\text{ a }\$40\text{ USD/Hora}$).
+  * **Parámetro Unificado para nuestro Curso:** Utilizaremos la tarifa profesional estándar de **$\$45.000\text{ COP/Hora}$**.
+
+### 2.6. Fórmulas de Conversión Financiera
+
+#### FÓRMULA 1: Esfuerzo de Desarrollo por Historia ($E_i$)
+Calcula la cantidad total de horas de trabajo requeridas para desarrollar una historia $i$, multiplicando sus Story Points por el Factor de Conversión ($F_c = 8\text{ Horas/SP}$):
+
+$$E_i = \text{SP}_i \times F_c \quad [\text{Horas}]$$
+
+#### FÓRMULA 2: Costo Financiero por Historia ($C_i$)
+Calcula el costo comercial en Pesos Colombianos ($COP$) de la historia $i$, multiplicando las horas de esfuerzo por la Tarifa Horaria ($T_h = \$45.000\text{ COP/Hora}$):
 
 $$C_i = E_i \times T_h \quad [\text{COP}]$$
 
-#### FÓRMULA 3: Presupuesto Total del Proyecto ($C_{\text{total}}$) e Inversión Total de Horas ($E_{\text{total}}$)
-Resulta de la sumatoria simple de todas las historias del backlog ($n$ historias):
+#### FÓRMULA 3: Sumatorias Totales del Proyecto ($E_{\text{total}}$ y $C_{\text{total}}$)
+Calcula el esfuerzo acumulado y el presupuesto global del proyecto mediante la sumatoria simple de todas las $n$ historias del Backlog:
 
-$$E_{\text{total}} = \sum_{i=1}^{n} E_i \quad [\text{Horas/Hombre}]$$
+$$E_{\text{total}} = \sum_{i=1}^{n} E_i = E_1 + E_2 + E_3 + \dots + E_n \quad [\text{Horas}]$$
 
-$$C_{\text{total}} = \sum_{i=1}^{n} C_i \quad [\text{COP}]$$
-
----
-
-## 2. Demostración Paso a Paso con el Caso TicketPass
-
-### 2.1. Definición de Parámetros Comerciales y Técnicos
-* **Composición del Equipo:** 3 Desarrolladores Full-Stack.
-* **Historia Pivote de Referencia:** `HU03 - Parametrización de Zonas y Precios` = $2\text{ SP}$.
-* **Factor de Conversión del Equipo ($F_c$):** $1\text{ SP} = 8\text{ Horas/Hombre}$.
-* **Tarifa Profesional Hora/Hombre ($T_h$):** $\$45.000\text{ COP/Hora}$.
+$$C_{\text{total}} = \sum_{i=1}^{n} C_i = C_1 + C_2 + C_3 + \dots + C_n \quad [\text{COP}]$$
 
 ---
 
-### 2.2. Desglose Matemático Detallado Historia por Historia
+## 3. Demostración Paso a Paso con el Caso TicketPass
+
+### 3.1. Parámetros Comerciales y Técnicos
+* **Composición del Equipo:** 1 Product Owner, 1 Líder Técnico, 2 Desarrolladoras/es.
+* **Historia Pivote Seleccionada:** `HU03 - Parametrización de Zonas y Precios` = **$2\text{ SP}$**.
+* **Factor de Conversión del Equipo ($F_c$):** $1\text{ SP} = 8\text{ Horas}$.
+* **Tarifa Profesional ($T_h$):** $\$45.000\text{ COP/Hora}$.
+
+### 3.2. Desglose Matemático Detallado Historia por Historia
 
 #### Historia #1: `HU01 - Fila Virtual para Compra de Boletas`
-* **Puntaje Planning Poker:** Se vota **$13\text{ SP}$** (Complejidad alta por concurrencia masiva, manejo de colas distribuidas y riesgo de caída de servidor).
+* **Votación Planning Poker:** **$13\text{ SP}$** (Complejidad muy alta por manejo de concurrencia masiva, colas distribuidas y riesgo de caídas).
 * **Cálculo de Esfuerzo ($E_1$):**
-  $$E_1 = 13\text{ SP} \times 8\text{ Horas/SP} = 104\text{ Horas/Hombre}$$
+  $$E_1 = 13\text{ SP} \times 8\text{ Horas/SP} = 104\text{ Horas}$$
 * **Cálculo de Costo ($C_1$):**
   $$C_1 = 104\text{ Horas} \times \$45.000\text{ COP/Hora} = \$4.680.000\text{ COP}$$
 
 #### Historia #2: `HU02 - Generación de Código QR Dinámico para Entradas`
-* **Puntaje Planning Poker:** Se vota **$5\text{ SP}$** (Complejidad media: cifrado simétrico con token temporal de 30 segundos y generación de imagen).
+* **Votación Planning Poker:** **$5\text{ SP}$** (Complejidad media: en comparación con la pivote de $2\text{ SP}$, esta historia requiere cifrado simétrico y generación de imágenes dinámicas).
 * **Cálculo de Esfuerzo ($E_2$):**
-  $$E_2 = 5\text{ SP} \times 8\text{ Horas/SP} = 40\text{ Horas/Hombre}$$
+  $$E_2 = 5\text{ SP} \times 8\text{ Horas/SP} = 40\text{ Horas}$$
 * **Cálculo de Costo ($C_2$):**
   $$C_2 = 40\text{ Horas} \times \$45.000\text{ COP/Hora} = \$1.800.000\text{ COP}$$
 
-#### Historia #3: `HU03 - Parametrización de Zonas y Precios por Evento`
-* **Puntaje Planning Poker:** **$2\text{ SP}$** (Historia Pivote: Operaciones CRUD estándar en base de datos sin mayor riesgo).
+#### Historia #3: `HU03 - Parametrización de Zonas y Precios de Boletería`
+* **Votación Planning Poker:** **$2\text{ SP}$** (**[Historia Pivote Base]**: Operaciones CRUD estándar de base de datos sin mayor riesgo).
 * **Cálculo de Esfuerzo ($E_3$):**
-  $$E_3 = 2\text{ SP} \times 8\text{ Horas/SP} = 16\text{ Horas/Hombre}$$
+  $$E_3 = 2\text{ SP} \times 8\text{ Horas/SP} = 16\text{ Horas}$$
 * **Cálculo de Costo ($C_3$):**
   $$C_3 = 16\text{ Horas} \times \$45.000\text{ COP/Hora} = \$720.000\text{ COP}$$
 
-#### Historia #4: `HU04 - Mapa Interactivo del Recinto y Selección de Asientos`
-* **Puntaje Planning Poker:** Se vota **$8\text{ SP}$** (Complejidad media-alta: manipulación de vectores SVG y sincronización de disponibilidad de sillas en tiempo real).
+#### Historia #4: `HU04 - Selección de Boletas mediante Mapa Interactivo`
+* **Votación Planning Poker:** **$8\text{ SP}$** (Complejidad alta: renderizado de vectores SVG interactivos y sincronización de sillas en tiempo real).
 * **Cálculo de Esfuerzo ($E_4$):**
-  $$E_4 = 8\text{ SP} \times 8\text{ Horas/SP} = 64\text{ Horas/Hombre}$$
+  $$E_4 = 8\text{ SP} \times 8\text{ Horas/SP} = 64\text{ Horas}$$
 * **Cálculo de Costo ($C_4$):**
   $$C_4 = 64\text{ Horas} \times \$45.000\text{ COP/Hora} = \$2.880.000\text{ COP}$$
 
-#### Historia #5: `HU05 - Validación de Boletas en Punto de Acceso (Escáner Mobile)`
-* **Puntaje Planning Poker:** Se vota **$3\text{ SP}$** (Complejidad baja-media: consumo de cámara web/móvil, desencriptación del QR y consulta REST con soporte en caché).
+#### Historia #5: `HU05 - Validación de Boletas en Punto de Acceso`
+* **Votación Planning Poker:** **$3\text{ SP}$** (Complejidad baja-media: consumo de cámara del móvil, desencriptación de QR y peticiones API REST con caché).
 * **Cálculo de Esfuerzo ($E_5$):**
-  $$E_5 = 3\text{ SP} \times 8\text{ Horas/SP} = 24\text{ Horas/Hombre}$$
+  $$E_5 = 3\text{ SP} \times 8\text{ Horas/SP} = 24\text{ Horas}$$
 * **Cálculo de Costo ($C_5$):**
   $$C_5 = 24\text{ Horas} \times \$45.000\text{ COP/Hora} = \$1.080.000\text{ COP}$$
 
----
-
-### 2.3. Consolidado Matrimonial de Totales TicketPass
+### 3.3. Cálculo de Sumatorias Totales (Consolidado)
 
 $$\text{Total SP} = 13 + 5 + 2 + 8 + 3 = \mathbf{31\text{ SP}}$$
 
-$$E_{\text{total}} = 104 + 40 + 16 + 64 + 24 = \mathbf{248\text{ Horas/Hombre}}$$
+$$E_{\text{total}} = 104 + 40 + 16 + 64 + 24 = \mathbf{248\text{ Horas}}$$
 
 $$C_{\text{total}} = \$4.680.000 + \$1.800.000 + \$720.000 + \$2.880.000 + \$1.080.000 = \mathbf{\$11.160.000\text{ COP}}$$
 
-#### Matriz Resumen Consolidada:
+#### Matriz Resumen Consolidada TicketPass:
 
-| ID Issue | Historia de Usuario | Categoría MoSCoW | Story Points (SP) | Factor $F_c$ | Esfuerzo ($E_i$) | Tarifa ($T_h$) | Costo Financiero ($C_i$) | Justificación Juicio de Expertos |
+| ID Issue | Historia de Usuario | Categoría MoSCoW | Story Points ($SP$) | Factor ($F_c$) | Esfuerzo ($E_i$) | Tarifa ($T_h$) | Costo Financiero ($C_i$) | Justificación Técnica Juicio de Expertos |
 | :-: | :--- | :-: | :-: | :-: | :-: | :-: | :-: | :--- |
-| **#1** | HU01 - Fila Virtual | **Must Have** | **13 SP** | 8 hrs/SP | 104 hrs | $\$45.000$ | $\$4.680.000$ COP | Alta concurrencia, colas y riesgo de caída. |
+| **#1** | HU01 - Fila Virtual | **Must Have** | **13 SP** | 8 hrs/SP | 104 hrs | $\$45.000$ | $\$4.680.000$ COP | Alta concurrencia, colas distribuidas y riesgo. |
 | **#2** | HU02 - QR Dinámico | **Must Have** | **5 SP** | 8 hrs/SP | 40 hrs | $\$45.000$ | $\$1.800.000$ COP | Cifrado simétrico temporal y tokenización. |
 | **#3** | HU03 - Parametrización | **Must Have** | **2 SP** | 8 hrs/SP | 16 hrs | $\$45.000$ | $\$720.000$ COP | **[Pivote Base]** Operaciones CRUD simples. |
 | **#4** | HU04 - Mapa Interactivo | **Should Have** | **8 SP** | 8 hrs/SP | 64 hrs | $\$45.000$ | $\$2.880.000$ COP | Gráficos SVG interactivos en tiempo real. |
@@ -285,30 +319,31 @@ $$C_{\text{total}} = \$4.680.000 + \$1.800.000 + \$720.000 + \$2.880.000 + \$1.0
 
 ---
 
-## 3. Especificación del Taller Práctico (30 de Septiembre)
+## 4. Especificación del Taller Práctico (30 de Septiembre)
 
 ### Modalidad y Entregable
-* Trabajo colaborativo en el repositorio del proyecto.
-* **Ruta del Entregable:** Crear el archivo `DOCS/03_estimacion_y_costos.md`.
+* Trabajo colaborativo en los equipos del proyecto.
+* **Ruta del Entregable:** Crear el archivo `DOCS/03_estimacion_y_costos.md` en su repositorio de GitHub.
 
 ### Instrucciones Paso a Paso
-1. **Definir la Historia Pivote del Grupo:** Elegir de su backlog la historia más sencilla y asignarle $1\text{ SP}$ o $2\text{ SP}$.
-2. **Aplicar Planning Poker:** Discutir y asignar valores de la serie de Fibonacci ($1, 2, 3, 5, 8, 13, 20$) a cada una de sus historias de usuario.
-3. **Parámetros Obligatorios para la Clase:**
-   * Usar un **Factor de Conversión:** $1\text{ SP} = 6\text{ Horas/Hombre}$.
-   * Usar una **Tarifa Profesional:** $\$40.000\text{ COP/Hora}$.
-4. **Cálculos Obligatorios:** Aplicar las Fórmulas 1, 2 y 3 para hallar el esfuerzo en horas y el costo en COP historia por historia y los totales globales.
-5. **Actualización en GitHub:** Editar los títulos de sus GitHub Issues agregando el puntaje estimado entre corchetes (Ejemplo: `[5 SP] HU02 - Registro de Usuarios`).
+1. **Asignación de Roles:** Registrar en el documento los nombres de los 4 integrantes y sus respectivos roles (Product Owner, Líder Técnico, Desarrollador/a 1, Desarrollador/a 2).
+2. **Definir la Historia Pivote del Grupo:** Seleccionar del Product Backlog (sus GitHub Issues) la historia más sencilla y asignarle **$1\text{ SP}$** o **$2\text{ SP}$**.
+3. **Simular Planning Poker:** Votar y asignar valores de Fibonacci ($1, 2, 3, 5, 8, 13, 20$) a cada una de las historias de usuario de su repositorio, basándose en la comparación relativa contra su historia pivote.
+4. **Parámetros Obligatorios de Clase:**
+   * **Factor de Conversión ($F_c$):** $1\text{ SP} = 8\text{ Horas}$.
+   * **Tarifa Profesional ($T_h$):** $\$45.000\text{ COP/Hora}$.
+5. **Cálculos Obligatorios:** Aplicar las Fórmulas 1, 2 y 3 para calcular el esfuerzo en horas y costo en COP de cada historia y las sumatorias totales globales del proyecto ($E_{\text{total}}$ y $C_{\text{total}}$).
+6. **Actualización en GitHub:** Editar los títulos de sus GitHub Issues agregando el puntaje estimado entre corchetes al inicio (Ejemplo: `[5 SP] HU02 - Registro de Usuarios`).
 
 ---
 
-## 4. Criterios de Evaluación y Rúbrica (5.0 Puntos)
+## 5. Criterios de Evaluación y Rúbrica (5.0 Puntos)
 
 | Criterio | Descripción Técnica | Puntaje |
 | :--- | :--- | :--- |
-| **Asignación de Pivote y Planning Poker** | Identificación clara de la historia pivote y justificación argumentada del puntaje $SP$ para cada historia en `DOCS/03_estimacion_y_costos.md`. | 2.0 pts |
-| **Exactitud en Cálculos de Tiempo, Esfuerzo y Costo** | Aplicación correcta de las fórmulas de multiplicación ($E_i$ y $C_i$) y sumatorias globales ($E_{\text{total}}$ y $C_{\text{total}}$) sin errores numéricos. | 2.0 pts |
-| **Sincronización en GitHub Issues** | Marcación formal de los Story Points en las etiquetas o títulos de las tareas en GitHub. | 1.0 pt |
+| **Roles, Pivote y Planning Poker** | Asignación clara de los 4 roles, identificación formal de la historia pivote y justificación argumentada del puntaje $SP$ para cada historia en `DOCS/03_estimacion_y_costos.md`. | 2.0 pts |
+| **Exactitud en Cálculos y Sumatorias** | Aplicación matemática exacta de las multiplicaciones ($E_i, C_i$) y de las sumatorias ($E_{\text{total}}, C_{\text{total}}$) utilizando los parámetros fijados de la clase. | 2.0 pts |
+| **Sincronización en GitHub Issues** | Actualización formal de los títulos de todos los Issues en el repositorio agregando el prefijo del puntaje estimado (ej. `[X SP]`). | 1.0 pt |
 
 ---
 
