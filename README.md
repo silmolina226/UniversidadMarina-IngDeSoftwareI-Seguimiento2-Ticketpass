@@ -167,7 +167,6 @@ El **Producto Mínimo Viable (MVP)** para el lanzamiento de **TicketPass** se co
 | **Co-evaluación / Feedback Cruzado** | Participación activa en la validación y comparación de backlogs entre equipos. | 1.0 pt |
 
 ---
-Markdown
 # Unidad 2: Estimación Formal en la Construcción de Software
 ## Guía de Aprendizaje - Clase 3: Estimación Formal, Juicio de Expertos, Tiempo, Esfuerzo y Costos
 
@@ -177,7 +176,7 @@ Markdown
 
 Dado que cada equipo de trabajo consta de **4 integrantes**, antes de iniciar el proceso de estimación deben asignar explícitamente los siguientes roles:
 
-* **Product Owner (PO):** Representa la voz del cliente y del negocio. Su responsabilidad en esta clase es explicar el alcance de cada Historia de Usuario, aclarar dudas funcionales al equipo y velar porque la estimación técnica respete las prioridades del negocio.
+* **Product Owner (PO):** Representa la voz del cliente y del negocio. Su responsabilidad en esta clase es explicar el alcance de cada Historia de Usuario, aclarar dudas functionales al equipo y velar porque la estimación técnica respete las prioridades del negocio.
 * **Líder Técnico / Lead Dev:** Desarrollador(a) con criterio de arquitectura. Se encarga de guiar las discusiones técnicas, resolver empates durante las votaciones de estimación y validar que las Historias de Usuario sean técnicamente viables.
 * **Desarrollador(a) 1 y Desarrollador(a) 2:** Encargados(as) de evaluar el esfuerzo real de codificación, consultas e integración con bases de datos, lógica de negocio, interfaces de usuario y pruebas unitarias necesarias para entregar una funcionalidad terminada.
 
@@ -190,12 +189,16 @@ Dado que cada equipo de trabajo consta de **4 integrantes**, antes de iniciar el
 * **Relación con el MVP (Producto Mínimo Viable):** El Backlog contiene funcionalidades esenciales (**Must Have**) e importantes (**Should Have / Could Have**). El **MVP** está conformado por aquellas Historias de Usuario indispensables para que el software funcione comercialmente. Estimar el Backlog completo nos permite saber cuánto cuesta el proyecto total y cuánto cuesta construir únicamente la primera versión entregable (el MVP).
 * **Aclaración sobre Sprints:** Aunque el concepto de *Sprint* se profundizará más adelante en el marco Scrum, en esta clase nos enfocamos exclusivamente en la **estimación del esfuerzo total y presupuesto global del Backlog completo**.
 
+---
+
 ### 2.2. ¿Qué son los Story Points (SP) y cómo se derivan?
 Un **Story Point (SP)** NO es un número fijo de horas, sino una **unidad abstracta de medida** que evalúa la **Carga Global de Trabajo** requerida para implementar una Historia de Usuario. 
 
 Se calcula considerando tres dimensiones esenciales:
 
 $$\text{Story Point (SP)} = \text{Complejidad Algorítmica} + \text{Volumen de Trabajo} + \text{Incertidumbre o Riesgo Técnico}$$
+
+---
 
 ### 2.3. Planning Poker y la Secuencia de Fibonacci Modificada
 **Planning Poker** es una técnica gamificada de estimación por consenso diseñada para evitar el *sesgo de autoridad* (impide que el equipo vote mecánicamente lo que diga un solo integrante o el Líder Técnico). 
@@ -214,8 +217,6 @@ Porque en la ingeniería de software **la incertidumbre no crece de manera linea
 * Distinguir la diferencia entre una tarea de $13\text{ horas}$ y $14\text{ horas}$ es imposible dada la alta variabilidad del software.
 * Por esta razón, los saltos en la escala ($3 \rightarrow 5 \rightarrow 8 \rightarrow 13$) obligan al equipo a reconocer que, a mayor tamaño y complejidad de la tarea, mayor es el riesgo de error en la estimación.
 
-* **Escala de Votación Planning Poker:** `[ 1 ]` `[ 2 ]` `[ 3 ]` `[ 5 ]` `[ 8 ]` `[ 13 ]` `[ 20 ]` *(Incertidumbre y riesgo creciente)*
-
 ### 2.4. Trazabilidad: ¿Cómo se determina la Historia Pivote y las Comparaciones?
 Para evitar estimar a ciegas, se utiliza el método de **Estimación Relativa**:
 
@@ -225,12 +226,17 @@ Para evitar estimar a ciegas, se utiliza el método de **Estimación Relativa**:
    * *¿Requiere el doble de esfuerzo y tiene un poco más de lógica de base de datos?* $\rightarrow$ En la escala de Fibonacci no existe el 4, por lo tanto, el salto natural asciende a **$5\text{ SP}$**.
    * *¿Es una funcionalidad crítica, con alta incertidumbre, gráficos interactivos o algoritmos complejos?* $\rightarrow$ Se vota en **$8\text{ SP}$** o **$13\text{ SP}$**.
 
+---
+
 ### 2.5. Tarifas de la Industria y Estándares de Software
+
 * **¿Por qué $1\text{ SP} = 8\text{ Horas}$?** En la industria de software internacional es un estándar altamente aceptado equiparar $1\text{ Punto de Historia}$ con $1\text{ día laboral efectivo}$ de desarrollo ($8\text{ horas de trabajo}$).
 * **Tarifas por Hora de Desarrollador en Colombia y LatAm:**
   * *Desarrollador Junior / Mid (Colombia):* $\$35.000\text{ a }\$50.000\text{ COP/Hora}$ ($\sim \$8\text{ a }\$12\text{ USD/Hora}$).
   * *Desarrollador Senior / Lead (LatAm Remote):* $\$80.000\text{ a }\$150.000\text{ COP/Hora}$ ($\sim \$20\text{ a }\$40\text{ USD/Hora}$).
   * **Parámetro Unificado para nuestro Curso:** Utilizaremos la tarifa profesional estándar de **$\$45.000\text{ COP/Hora}$**.
+
+---
 
 ### 2.6. Fórmulas de Conversión Financiera
 
@@ -260,6 +266,8 @@ $$C_{\text{total}} = \sum_{i=1}^{n} C_i = C_1 + C_2 + C_3 + \dots + C_n \quad [\
 * **Historia Pivote Seleccionada:** `HU03 - Parametrización de Zonas y Precios` = **$2\text{ SP}$**.
 * **Factor de Conversión del Equipo ($F_c$):** $1\text{ SP} = 8\text{ Horas}$.
 * **Tarifa Profesional ($T_h$):** $\$45.000\text{ COP/Hora}$.
+
+---
 
 ### 3.2. Desglose Matemático Detallado Historia por Historia
 
@@ -297,6 +305,8 @@ $$C_{\text{total}} = \sum_{i=1}^{n} C_i = C_1 + C_2 + C_3 + \dots + C_n \quad [\
   $$E_5 = 3\text{ SP} \times 8\text{ Horas/SP} = 24\text{ Horas}$$
 * **Cálculo de Costo ($C_5$):**
   $$C_5 = 24\text{ Horas} \times \$45.000\text{ COP/Hora} = \$1.080.000\text{ COP}$$
+
+---
 
 ### 3.3. Cálculo de Sumatorias Totales (Consolidado)
 
@@ -344,6 +354,11 @@ $$C_{\text{total}} = \$4.680.000 + \$1.800.000 + \$720.000 + \$2.880.000 + \$1.0
 | **Roles, Pivote y Planning Poker** | Asignación clara de los 4 roles, identificación formal de la historia pivote y justificación argumentada del puntaje $SP$ para cada historia en `DOCS/03_estimacion_y_costos.md`. | 2.0 pts |
 | **Exactitud en Cálculos y Sumatorias** | Aplicación matemática exacta de las multiplicaciones ($E_i, C_i$) y de las sumatorias ($E_{\text{total}}, C_{\text{total}}$) utilizando los parámetros fijados de la clase. | 2.0 pts |
 | **Sincronización en GitHub Issues** | Actualización formal de los títulos de todos los Issues en el repositorio agregando el prefijo del puntaje estimado (ej. `[X SP]`). | 1.0 pt |
+
+
+
+
+
 
 ---
 
