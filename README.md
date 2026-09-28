@@ -260,29 +260,28 @@ $$C_{\text{total}} = \sum_{i=1}^{n} C_i = C_1 + C_2 + C_3 + \dots + C_n \quad [\
 
 #### Historia #1: `HU01 - Fila Virtual para Compra de Boletas`
 * **Votación Planning Poker:** **13 SP** (Complejidad muy alta por manejo de concurrencia masiva y colas distribuidas).
-* **Cálculo de Esfuerzo ($E_1$):** $E_1 = 13\text{ SP} \times 8\text{ Horas/SP} = 104\text{ Horas}$
-* **Cálculo de Costo ($C_1$):** $C_1 = 104\text{ Horas} \times \$45.000\text{ COP/Hora} = \$4.680.000\text{ COP}$
+* **Cálculo de Esfuerzo ($E_1$):** $E_1$ = 13 SP × 8 Horas/SP = 104 Horas
+* **Cálculo de Costo ($C_1$):** $C_1$ = 104 Horas × 45.000 COP/Hora = **4.680.000 COP**
 
 #### Historia #2: `HU02 - Generación de Código QR Dinámico para Entradas`
 * **Votación Planning Poker:** **5 SP** (Complejidad media: en comparación con la pivote de 2 SP, esta requiere cifrado simétrico y generación de imágenes dinámicas).
-* **Cálculo de Esfuerzo ($E_2$):** $E_2 = 5\text{ SP} \times 8\text{ Horas/SP} = 40\text{ Horas}$
-* **Cálculo de Costo ($C_2$):** $C_2 = 40\text{ Horas} \times \$45.000\text{ COP/Hora} = \$1.800.000\text{ COP}$
+* **Cálculo de Esfuerzo ($E_2$):** $E_2$ = 5 SP × 8 Horas/SP = 40 Horas
+* **Cálculo de Costo ($C_2$):** $C_2$ = 40 Horas × 45.000 COP/Hora = **1.800.000 COP**
 
 #### Historia #3: `HU03 - Parametrización de Zonas y Precios por Evento`
 * **Votación Planning Poker:** **2 SP** (**[Historia Pivote Base]**: CRUD estándar de base de datos).
-* **Cálculo de Esfuerzo ($E_3$):** $E_3 = 2\text{ SP} \times 8\text{ Horas/SP} = 16\text{ Horas}$
-* **Cálculo de Costo ($C_3$):** $C_3 = 16\text{ Horas} \times \$45.000\text{ COP/Hora} = \$720.000\text{ COP}$
+* **Cálculo de Esfuerzo ($E_3$):** $E_3$ = 2 SP × 8 Horas/SP = 16 Horas
+* **Cálculo de Costo ($C_3$):** $C_3$ = 16 Horas × 45.000 COP/Hora = **720.000 COP**
 
 #### Historia #4: `HU04 - Mapa Interactivo del Recinto y Selección de Asientos`
 * **Votación Planning Poker:** **8 SP** (Complejidad alta: renderizado de vectores SVG y control de disponibilidad de sillas en tiempo real).
-* **Cálculo de Esfuerzo ($E_4$):** $E_4 = 8\text{ SP} \times 8\text{ Horas/SP} = 64\text{ Horas}$
-* **Cálculo de Costo ($C_4$):** $C_4 = 64\text{ Horas} \times \$45.000\text{ COP/Hora} = \$2.880.000\text{ COP}$
+* **Cálculo de Esfuerzo ($E_4$):** $E_4$ = 8 SP × 8 Horas/SP = 64 Horas
+* **Cálculo de Costo ($C_4$):** $C_4$ = 64 Horas × 45.000 COP/Hora = **2.880.000 COP**
 
 #### Historia #5: `HU05 - Validación de Boletas en Punto de Acceso`
 * **Votación Planning Poker:** **3 SP** (Complejidad baja-media: consumo de API REST, uso de cámara del dispositivo móvil y almacenamiento en caché).
-* **Cálculo de Esfuerzo ($E_5$):** $E_5 = 3\text{ SP} \times 8\text{ Horas/SP} = 24\text{ Horas}$
-* **Cálculo de Costo ($C_5$):** $C_5 = 24\text{ Horas} \times \$45.000\text{ COP/Hora} = \$1.080.000\text{ COP}$
-
+* **Cálculo de Esfuerzo ($E_5$):** $E_5$ = 3 SP × 8 Horas/SP = 24 Horas
+* **Cálculo de Costo ($C_5$):** $C_5$ = 24 Horas × 45.000 COP/Hora = **1.080.000 COP**
 ---
 
 ### 3.3. Cálculo de Sumatorias Totales
