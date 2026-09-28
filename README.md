@@ -200,26 +200,26 @@ $$\text{Story Point (SP)} = \text{Complejidad Algorítmica} + \text{Volumen de T
 
 #### ¿Por qué usamos la Secuencia de Fibonacci ($1, 2, 3, 5, 8, 13, 20...$)?
 Porque en la ingeniería de software **la incertidumbre no escala de manera lineal, sino exponencial**:
-* Distinguir entre una tarea de $1\text{ hora}$ y una de $2\text{ horas}$ es sencillo.
-* Distinguir entre una tarea de $13\text{ horas}$ y $14\text{ horas}$ es imposible por la alta variabilidad.
+* Distinguir entre una tarea de 1 hora y una de 2 horas es sencillo.
+* Distinguir entre una tarea de 13 horas y 14 horas es imposible por la alta variabilidad.
 * Por ello, los saltos en la escala ($3 \rightarrow 5 \rightarrow 8 \rightarrow 13$) obligan al equipo a reconocer que, cuanto más grande es una funcionalidad, mayor es el riesgo de desviación.
 
 ### 2.4. Trazabilidad: ¿Cómo se determina la Historia Pivote y las Comparaciones?
-1. **Paso 1 (Determinación de la Historia Pivote):** El equipo revisa su Backlog y busca la historia más pequeña, sencilla y clara de implementar. A esta historia se le asigna de manera arbitraria la carta pivote de **$2\text{ SP}$**.
+1. **Paso 1 (Determinación de la Historia Pivote):** El equipo revisa su Backlog y busca la historia más pequeña, sencilla y clara de implementar. A esta historia se le asigna de manera arbitraria la carta pivote de **2 SP**.
 2. **Paso 2 (Comparación Relativa contra la Pivote):**
-   * *Si la Historia B es igual de sencilla que la Pivote:* Votan **$2\text{ SP}$**.
-   * *Si la Historia C requiere el doble de trabajo y tiene más lógica de base de datos:* No se vota 4 (no existe en la escala), se vota **$5\text{ SP}$**.
-   * *Si la Historia D implica integraciones externas, alta seguridad o algoritmos complejos:* Se vota **$8\text{ SP}$** o **$13\text{ SP}$**.
+   * *Si la Historia B es igual de sencilla que la Pivote:* Votan **2 SP**.
+   * *Si la Historia C requiere el doble de trabajo y tiene más lógica de base de datos:* No se vota 4 (no existe en la escala), se vota **5 SP**.
+   * *Si la Historia D implica integraciones externas, alta seguridad o algoritmos complejos:* Se vota **8 SP** o **13 SP**.
 
 ---
 
 ### 2.5. Tarifas de la Industria y Estándares de Software
 
-* **¿Por qué $1\text{ SP} = 8\text{ Horas}$?** En la industria de software, un estándar altamente aceptado es equiparar $1\text{ Punto de Historia}$ con $1\text{ día laboral efectivo}$ de desarrollo de software ($8\text{ horas de trabajo}$).
+* **¿Por qué $1\text{ SP} = 8\text{ Horas}$?** En la industria de software, un estándar altamente aceptado es equiparar 1 Punto de Historia con 1 día laboral efectivo de desarrollo de software (8 horas de trabajo)[cite: 11].
 * **Tarifas por Hora en la Industria (Colombia y LatAm):**
-  * *Desarrollador Junior / Mid (Colombia):* $\$35.000\text{ a }\$50.000\text{ COP/Hora}$ ($\sim \$8\text{ a }\$12\text{ USD/Hora}$).
-  * *Desarrollador Senior / Lead (LatAm Remote):* $\$80.000\text{ a }\$150.000\text{ COP/Hora}$ ($\sim \$20\text{ a }\$40\text{ USD/Hora}$).
-  * **Parámetro para nuestro curso:** Utilizaremos una tarifa estándar profesional de **$\$45.000\text{ COP/Hora}$**.
+  * *Desarrollador Junior / Mid (Colombia):* $35.000 COP a $50.000 COP / Hora (~ $8 a $12 USD / Hora).
+  * *Desarrollador Senior / Lead (LatAm Remote):* $80.000 COP a $150.000 COP / Hora (~ $20 a $40 USD / Hora).
+  * **Parámetro para nuestro curso:** Utilizaremos una tarifa estándar profesional de **$45.000 COP / Hora**.
 
 ---
 
@@ -233,7 +233,7 @@ $$E_i = \text{SP}_i \times F_c \quad [\text{Horas}]$$
 *(Donde $F_c = 8\text{ Horas/SP}$ es el Factor de Conversión).*
 
 #### FÓRMULA 2: Costo Financiero por Historia ($C_i$)
-Calcula el costo en Pesos Colombianos ($COP$) de la historia $i$:
+Calcula el costo en Pesos Colombianos (COP) de la historia $i$:
 
 $$C_i = E_i \times T_h \quad [\text{COP}]$$
 
@@ -252,44 +252,44 @@ $$C_{\text{total}} = \sum_{i=1}^{n} C_i = C_1 + C_2 + C_3 + \dots + C_n \quad [\
 
 ### 3.1. Parámetros del Proyecto
 * **Equipo:** 1 Product Owner, 1 Líder Técnico, 2 Desarrolladoras/es.
-* **Historia Pivote Base:** `HU03 - Parametrización de Zonas y Precios` = **$2\text{ SP}$**.
+* **Historia Pivote Base:** `HU03 - Parametrización de Zonas y Precios` = **2 SP**.
 * **Factor de Conversión ($F_c$):** $1\text{ SP} = 8\text{ Horas}$.
-* **Tarifa Profesional ($T_h$):** $\$45.000\text{ COP/Hora}$.
+* **Tarifa Profesional ($T_h$):** $45.000 COP / Hora.
 
 ---
 
 ### 3.2. Desglose Matemático Detallado Historia por Historia
 
 #### Historia #1: `HU01 - Fila Virtual para Compra de Boletas`
-* **Votación Planning Poker:** **$13\text{ SP}$** (Complejidad muy alta por manejo de concurrencia masiva y colas distribuidas).
+* **Votación Planning Poker:** **13 SP** (Complejidad muy alta por manejo de concurrencia masiva y colas distribuidas).
 * **Cálculo de Esfuerzo ($E_1$):**
   $$E_1 = 13\text{ SP} \times 8\text{ Horas/SP} = 104\text{ Horas}$$
 * **Cálculo de Costo ($C_1$):**
   $$C_1 = 104\text{ Horas} \times \$45.000\text{ COP/Hora} = \$4.680.000\text{ COP}$$
 
 #### Historia #2: `HU02 - Generación de Código QR Dinámico para Entradas`
-* **Votación Planning Poker:** **$5\text{ SP}$** (Complejidad media: en comparación con la pivote de $2\text{ SP}$, esta requiere cifrado simétrico y generación de imágenes dinámicas).
+* **Votación Planning Poker:** **5 SP** (Complejidad media: en comparación con la pivote de 2 SP, esta requiere cifrado simétrico y generación de imágenes dinámicas).
 * **Cálculo de Esfuerzo ($E_2$):**
   $$E_2 = 5\text{ SP} \times 8\text{ Horas/SP} = 40\text{ Horas}$$
 * **Cálculo de Costo ($C_2$):**
   $$C_2 = 40\text{ Horas} \times \$45.000\text{ COP/Hora} = \$1.800.000\text{ COP}$$
 
 #### Historia #3: `HU03 - Parametrización de Zonas y Precios por Evento`
-* **Votación Planning Poker:** **$2\text{ SP}$** (**[Historia Pivote Base]**: CRUD estándar de base de datos).
+* **Votación Planning Poker:** **2 SP** (**[Historia Pivote Base]**: CRUD estándar de base de datos).
 * **Cálculo de Esfuerzo ($E_3$):**
   $$E_3 = 2\text{ SP} \times 8\text{ Horas/SP} = 16\text{ Horas}$$
 * **Cálculo de Costo ($C_3$):**
   $$C_3 = 16\text{ Horas} \times \$45.000\text{ COP/Hora} = \$720.000\text{ COP}$$
 
 #### Historia #4: `HU04 - Mapa Interactivo del Recinto y Selección de Asientos`
-* **Votación Planning Poker:** **$8\text{ SP}$** (Complejidad alta: renderizado de vectores SVG y control de disponibilidad de sillas en tiempo real).
+* **Votación Planning Poker:** **8 SP** (Complejidad alta: renderizado de vectores SVG y control de disponibilidad de sillas en tiempo real).
 * **Cálculo de Esfuerzo ($E_4$):**
   $$E_4 = 8\text{ SP} \times 8\text{ Horas/SP} = 64\text{ Horas}$$
 * **Cálculo de Costo ($C_4$):**
   $$C_4 = 64\text{ Horas} \times \$45.000\text{ COP/Hora} = \$2.880.000\text{ COP}$$
 
 #### Historia #5: `HU05 - Validación de Boletas en Punto de Acceso`
-* **Votación Planning Poker:** **$3\text{ SP}$** (Complejidad baja-media: consumo de API REST, uso de cámara del dispositivo móvil y almacenamiento en caché).
+* **Votación Planning Poker:** **3 SP** (Complejidad baja-media: consumo de API REST, uso de cámara del dispositivo móvil y almacenamiento en caché).
 * **Cálculo de Esfuerzo ($E_5$):**
   $$E_5 = 3\text{ SP} \times 8\text{ Horas/SP} = 24\text{ Horas}$$
 * **Cálculo de Costo ($C_5$):**
@@ -299,22 +299,22 @@ $$C_{\text{total}} = \sum_{i=1}^{n} C_i = C_1 + C_2 + C_3 + \dots + C_n \quad [\
 
 ### 3.3. Cálculo de Sumatorias Totales
 
-$$\text{Total SP} = 13 + 5 + 2 + 8 + 3 = \mathbf{31\text{ SP}}$$
+$$\text{Total SP} = 13 + 5 + 2 + 8 + 3 = 31\text{ SP}$$
 
-$$E_{\text{total}} = 104 + 40 + 16 + 64 + 24 = \mathbf{248\text{ Horas}}$$
+$$E_{\text{total}} = 104 + 40 + 16 + 64 + 24 = 248\text{ Horas}$$
 
-$$C_{\text{total}} = \$4.680.000 + \$1.800.000 + \$720.000 + \$2.880.000 + \$1.080.000 = \mathbf{\$11.160.000\text{ COP}}$$
+$$C_{\text{total}} = \$4.680.000 + \$1.800.000 + \$720.000 + \$2.880.000 + \$1.080.000 = \$11.160.000\text{ COP}$$
 
 #### Matriz Resumen Consolidada TicketPass:
 
-| ID Issue | Historia de Usuario | Categoría MoSCoW | Story Points ($SP$) | Factor ($F_c$) | Esfuerzo ($E_i$) | Tarifa ($T_h$) | Costo Financiero ($C_i$) | Justificación Técnica Juicio de Expertos |
+| ID Issue | Historia de Usuario | Categoría MoSCoW | Story Points (SP) | Factor ($F_c$) | Esfuerzo ($E_i$) | Tarifa ($T_h$) | Costo Financiero ($C_i$) | Justificación Técnica Juicio de Expertos |
 | :-: | :--- | :-: | :-: | :-: | :-: | :-: | :-: | :--- |
-| **#1** | HU01 - Fila Virtual | **Must Have** | **13 SP** | 8 hrs/SP | 104 hrs | $\$45.000$ | $\$4.680.000$ COP | Alta concurrencia, colas distribuidas y riesgo. |
-| **#2** | HU02 - QR Dinámico | **Must Have** | **5 SP** | 8 hrs/SP | 40 hrs | $\$45.000$ | $\$1.800.000$ COP | Cifrado simétrico temporal y tokenización. |
-| **#3** | HU03 - Parametrización | **Must Have** | **2 SP** | 8 hrs/SP | 16 hrs | $\$45.000$ | $\$720.000$ COP | **[Pivote Base]** Operaciones CRUD simples. |
-| **#4** | HU04 - Mapa Interactivo | **Should Have** | **8 SP** | 8 hrs/SP | 64 hrs | $\$45.000$ | $\$2.880.000$ COP | Gráficos SVG interactivos en tiempo real. |
-| **#5** | HU05 - Escáner Punto Acceso | **Must Have** | **3 SP** | 8 hrs/SP | 24 hrs | $\$45.000$ | $\$1.080.000$ COP | Consumo de cámara, API y caché local. |
-| **TOTAL** | **Backlog Completo** | -- | **31 SP** | -- | **248 hrs** | -- | **$\$11.160.000$ COP** | **Proyecto Completo Estimado** |
+| **#1** | HU01 - Fila Virtual | **Must Have** | **13 SP** | 8 hrs/SP | 104 hrs | $45.000 COP | $4.680.000 COP | Alta concurrencia, colas distribuidas y riesgo. |
+| **#2** | HU02 - QR Dinámico | **Must Have** | **5 SP** | 8 hrs/SP | 40 hrs | $45.000 COP | $1.800.000 COP | Cifrado simétrico temporal y tokenización. |
+| **#3** | HU03 - Parametrización | **Must Have** | **2 SP** | 8 hrs/SP | 16 hrs | $45.000 COP | $720.000 COP | **[Pivote Base]** Operaciones CRUD simples. |
+| **#4** | HU04 - Mapa Interactivo | **Should Have** | **8 SP** | 8 hrs/SP | 64 hrs | $45.000 COP | $2.880.000 COP | Gráficos SVG interactivos en tiempo real. |
+| **#5** | HU05 - Escáner Punto Acceso | **Must Have** | **3 SP** | 8 hrs/SP | 24 hrs | $45.000 COP | $1.080.000 COP | Consumo de cámara, API y caché local. |
+| **TOTAL** | **Backlog Completo** | -- | **31 SP** | -- | **248 hrs** | -- | **$11.160.000 COP** | **Proyecto Completo Estimado** |
 
 ---
 
@@ -326,11 +326,11 @@ $$C_{\text{total}} = \$4.680.000 + \$1.800.000 + \$720.000 + \$2.880.000 + \$1.0
 
 ### Instrucciones Paso a Paso
 1. **Asignación de Roles:** Definir quién asume los roles de Product Owner, Líder Técnico y Desarrolladoras/es.
-2. **Definir la Historia Pivote del Grupo:** Seleccionar del Product Backlog (sus GitHub Issues) la historia más sencilla y asignarle **$1\text{ SP}$** o **$2\text{ SP}$**.
+2. **Definir la Historia Pivote del Grupo:** Seleccionar del Product Backlog (sus GitHub Issues) la historia más sencilla y asignarle **1 SP** o **2 SP**.
 3. **Simular Planning Poker:** Votar y asignar valores de Fibonacci ($1, 2, 3, 5, 8, 13, 20$) a cada una de sus historias de usuario en comparación con la pivote.
 4. **Parámetros Obligatorios de Clase:**
    * **Factor de Conversión ($F_c$):** $1\text{ SP} = 8\text{ Horas}$.
-   * **Tarifa Profesional ($T_h$):** $\$45.000\text{ COP/Hora}$.
+   * **Tarifa Profesional ($T_h$):** $45.000 COP / Hora.
 5. **Cálculos Obligatorios:** Aplicar las Fórmulas 1, 2 y 3 para calcular el esfuerzo en horas y costo en COP de cada historia y las sumatorias totales globales.
 6. **Actualización en GitHub:** Editar los títulos de sus GitHub Issues agregando el puntaje estimado entre corchetes (Ejemplo: `[5 SP] HU02 - Registro de Usuarios`).
 
@@ -340,11 +340,9 @@ $$C_{\text{total}} = \$4.680.000 + \$1.800.000 + \$720.000 + \$2.880.000 + \$1.0
 
 | Criterio | Descripción Técnica | Puntaje |
 | :--- | :--- | :--- |
-| **Roles, Pivote y Planning Poker** | Definición explícita de roles, identificación de la historia pivote y justificación del puntaje $SP$ asignado a cada historia en `DOCS/03_estimacion_y_costos.md`. | 2.0 pts |
+| **Roles, Pivote y Planning Poker** | Definición explícita de roles, identificación de la historia pivote y justificación del puntaje SP asignado a cada historia en `DOCS/03_estimacion_y_costos.md`. | 2.0 pts |
 | **Exactitud en Cálculos y Sumatorias** | Aplicación matemática exacta de las multiplicaciones ($E_i, C_i$) y de las sumatorias ($E_{\text{total}}, C_{\text{total}}$) utilizando los parámetros de clase. | 2.0 pts |
 | **Sincronización en GitHub Issues** | Actualización formal de los títulos o etiquetas de los Issues con los Story Points asignados. | 1.0 pt |
-
-
 
 
 
