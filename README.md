@@ -354,6 +354,28 @@ Un **Proceso de Software** es el conjunto estructurado de actividades de ingenie
 | **Espiral (Boehm)** | Guiado por la identificación, análisis y mitigación de riesgos técnicos en cada ciclo. | Muy adaptativo según riesgos. | Proyectos complejos con alto nivel de innovación o incertidumbre. |
 | **Scrum (Marco Ágil)** | Iterativo e incremental. Trabajo organizado en bloques fijos (*Sprints* de 2 semanas). | Altamente adaptativo. | Software comercial, startups y entornos de alta variabilidad. |
 
+### 1.2.1. Profundización en el Marco de Trabajo Scrum
+Para el desarrollo de TicketPass se adopta **Scrum**, un marco ágil fundamentado en la teoría empírica del control de procesos (empirismo), que sostiene que el conocimiento proviene de la experiencia y de la toma de decisiones basada en lo que se conoce. Scrum se sustenta en tres pilares fundamentales:
+1. **Transparencia:** Los aspectos significativos del proceso deben ser visibles para aquellos responsables del resultado.
+2. **Inspección:** Los artefactos de Scrum y el progreso hacia los objetivos deben examinarse con frecuencia para detectar desviaciones indeseadas.
+3. **Adaptación:** Si se determina que un aspecto del proceso se desvía fuera de los límites aceptables, el proceso o el material que se procesa debe ajustarse.
+
+#### Roles en Scrum
+* **Product Owner (Propietario del Producto):** Responsable de maximizar el valor del producto resultante del trabajo del equipo de desarrollo. Gestiona, prioriza y aclara la Pila de Producto (*Product Backlog*).
+* **Scrum Master:** Líder servidor que ayuda a todos los involucrados a entender y aplicar la teoría, prácticas, reglas y valores de Scrum, eliminando impedimentos externos e internos.
+* **Equipo de Desarrollo:** Profesionales multifuncionales y auto-organizados que realizan el trabajo técnico de análisis, diseño, codificación y pruebas en cada incremento.
+
+#### Artefactos de Scrum
+* **Product Backlog:** Lista emergente y ordenada de todo lo que se sabe que es necesario en el producto. Es la única fuente de requisitos para cualquier cambio a realizar.
+* **Sprint Backlog:** Conjunto de elementos de la Pila de Producto seleccionados para el Sprint, junto con un plan para entregar el incremento de software y conseguir el objetivo del Sprint.
+* **Incremento:** Es el sumatorio de todos los elementos de la Pila del Producto completados a lo largo de un Sprint y el valor de los incrementos de todos los Sprints anteriores, debiendo cumplir estrictamente con la "Definición de Terminado" (*Definition of Done*).
+
+#### Eventos o Ceremonias de Scrum
+* **Sprint Planning (Planificación del Sprint):** Evento donde se planifica el trabajo a realizar durante el Sprint mediante la colaboración de todo el equipo Scrum.
+* **Daily Standup (Reunión Diaria):** Sincronización de 15 minutos para el Equipo de Desarrollo con el fin de inspeccionar el progreso hacia el Objetivo del Sprint y adaptar el plan de las próximas 24 horas.
+* **Sprint Review (Revisión del Sprint):** Inspección del incremento obtenido al final del Sprint en colaboración con los interesados (*stakeholders*) para adaptar la Pila de Producto si es necesario.
+* **Sprint Retrospective (Retrospectiva del Sprint):** Oportunidad para que el equipo Scrum se inspeccione a sí mismo y cree un plan de mejoras para ser aplicadas en el siguiente Sprint.
+
 ---
 
 ### 1.3. Fórmulas de Planificación: Velocidad, Sprints y Cronograma
