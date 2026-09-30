@@ -365,11 +365,11 @@ Es la cantidad de Story Points que el equipo de desarrollo compromete y termina 
 $$V = \text{Puntos de Historia comisionados por Sprint} \quad [\text{SP/Sprint}]$$
 
 #### FÓRMULA 2: Duración en Sprints del MVP ($N_{\text{Sprints}}$)
-Determina el número de iteraciones requeridas para terminar las historias prioritarias (**Must Have**), dividiendo los $\text{SP}$ del MVP entre la velocidad del equipo:
+Determina el número de iteraciones requeridas para terminar las historias prioritarias (**Must Have**), dividiendo los SP del MVP entre la velocidad del equipo:
 
 $$N_{\text{Sprints}} = \frac{\sum \text{SP}_{\text{Must Have}}}{V}$$
 
-*(Nota: Si el resultado tiene decimales, se redondea hacia arriba al entero superior; por ejemplo: $1.83 \rightarrow 2\text{ Sprints}$).*
+*(Nota: Si el resultado tiene decimales, se redondea hacia arriba al entero superior; por ejemplo: $1.83 \rightarrow 2 \text{ Sprints}$).*
 
 #### FÓRMULA 3: Tiempo Total de Desarrollo en Semanas ($T_{\text{semanas}}$)
 Multiplica el número de Sprints por la duración de cada Sprint en semanas (estándar: 2 semanas por Sprint):
