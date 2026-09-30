@@ -365,11 +365,11 @@ Es la cantidad de Story Points que el equipo de desarrollo compromete y termina 
 $$V = \text{Puntos de Historia comisionados por Sprint} \quad [\text{SP/Sprint}]$$
 
 #### FÓRMULA 2: Duración en Sprints del MVP ($N_{\text{Sprints}}$)
-Determina el número de iteraciones requeridas para terminar las historias prioritarias (**Must Have**), dividiendo los $SP$ del MVP entre la velocidad del equipo:
+Determina el número de iteraciones requeridas para terminar las historias prioritarias (**Must Have**), dividiendo los $\text{SP}$ del MVP entre la velocidad del equipo:
 
 $$N_{\text{Sprints}} = \frac{\sum \text{SP}_{\text{Must Have}}}{V}$$
 
-*Nota: Si el resultado tiene decimales, se redondea hacia arriba al entero superior (ejemplo: $1.83 \rightarrow 2\text{ Sprints}$).*
+*(Nota: Si el resultado tiene decimales, se redondea hacia arriba al entero superior; por ejemplo: $1.83 \rightarrow 2\text{ Sprints}$).*
 
 #### FÓRMULA 3: Tiempo Total de Desarrollo en Semanas ($T_{\text{semanas}}$)
 Multiplica el número de Sprints por la duración de cada Sprint en semanas (estándar: 2 semanas por Sprint):
@@ -420,7 +420,7 @@ $$N_{\text{Sprints Total}} = \frac{31\text{ SP}}{12\text{ SP/Sprint}} = 2.58 \lo
   * `HU01 - Fila Virtual` (Módulo base) ($10\text{ SP}$)
 * **Carga del Sprint:** $2 + 10 = \mathbf{12\text{ SP}}$ (100% de la velocidad).
 * **Esfuerzo:** $12\text{ SP} \times 8\text{ hrs/SP} = 96\text{ Horas/Hombre}$.
-* **Costo Sprint 1:** $96\text{ hrs} \times \$45.000 = \mathbf{\$4.320.000\text{ COP}}$.
+* **Costo Sprint 1:** $96\text{ hrs} \times 45.000\text{ COP/hr} =$ **4.320.000 COP**.
 
 #### Sprint 2 (Semanas 3 y 4) · Capacidad Máxima: $12\text{ SP}$
 * **Historias Asignadas:**
@@ -429,20 +429,20 @@ $$N_{\text{Sprints Total}} = \frac{31\text{ SP}}{12\text{ SP/Sprint}} = 2.58 \lo
   * `HU05 - Escáner Punto Acceso` ($3\text{ SP}$)
 * **Carga del Sprint:** $3 + 5 + 3 = \mathbf{11\text{ SP}}$ (Dentro del límite de $12\text{ SP}$).
 * **Esfuerzo:** $11\text{ SP} \times 8\text{ hrs/SP} = 88\text{ Horas/Hombre}$.
-* **Costo Sprint 2:** $88\text{ hrs} \times \$45.000 = \mathbf{\$3.960.000\text{ COP}}$.
+* **Costo Sprint 2:** $88\text{ hrs} \times 45.000\text{ COP/hr} =$ **3.960.000 COP**.
 
 #### Sprint 3 (Semanas 5 y 6 - Extensión) · Capacidad Máxima: $12\text{ SP}$
 * **Historia Asignada:**
   * `HU04 - Mapa Interactivo` ($8\text{ SP}$)
 * **Carga del Sprint:** $\mathbf{8\text{ SP}}$.
 * **Esfuerzo:** $8\text{ SP} \times 8\text{ hrs/SP} = 64\text{ Horas/Hombre}$.
-* **Costo Sprint 3:** $64\text{ hrs} \times \$45.000 = \mathbf{\$2.880.000\text{ COP}}$.
+* **Costo Sprint 3:** $64\text{ hrs} \times 45.000\text{ COP/hr} =$ **2.880.000 COP**.
 
 ---
 
 ### 2.5. Resumen Financiero y Cronograma Comercial
-* **Costo Total del MVP (Sprints 1 y 2):** $\$4.320.000 + \$3.960.000 = \mathbf{\$8.280.000\text{ COP}}$ ($184\text{ Horas}$, $4\text{ Semanas}$).
-* **Costo Total del Proyecto Completo (Sprints 1, 2 y 3):** $\$8.280.000 + \$2.880.000 = \mathbf{\$11.160.000\text{ COP}}$ ($248\text{ Horas}$, $6\text{ Semanas}$).
+* **Costo Total del MVP (Sprints 1 y 2):** $4.320.000\text{ COP} + 3.960.000\text{ COP} =$ **8.280.000 COP** ($184\text{ Horas}$, $4\text{ Semanas}$).
+* **Costo Total del Proyecto Completo (Sprints 1, 2 y 3):** $8.280.000\text{ COP} + 2.880.000\text{ COP} =$ **11.160.000 COP** ($248\text{ Horas}$, $6\text{ Semanas}$).
 
 ---
 
@@ -455,7 +455,7 @@ $$N_{\text{Sprints Total}} = \frac{31\text{ SP}}{12\text{ SP/Sprint}} = 2.58 \lo
 ### Instrucciones Paso a Paso
 1. **Seleccionar el Modelo de Proceso:** Escoger entre Cascada, Incremental, Espiral o Scrum y redactar un texto justificando la elección en función de su proyecto.
 2. **Definir la Velocidad del Equipo ($V$):** Asumir una velocidad para su grupo (ejemplo: $V = 10\text{ SP/Sprint}$).
-3. **Calcular Sprints y Duración del MVP:** Separar sus historias Must Have ($SP_{\text{MVP}}$), dividirlas entre $V$ y determinar el número de Sprints y semanas totales.
+3. **Calcular Sprints y Duración del MVP:** Separar sus historias Must Have ($\text{SP}_{\text{MVP}}$), dividirlas entre $V$ y determinar el número de Sprints y semanas totales.
 4. **Organizar la Distribución de Sprints:** Detallar qué historias entran en cada Sprint sin sobrepasar la velocidad $V$.
 5. **Consolidar el Resumen Comercial:** Indicar el costo en COP y tiempo en semanas tanto para el MVP como para el proyecto completo.
 
@@ -467,4 +467,4 @@ $$N_{\text{Sprints Total}} = \frac{31\text{ SP}}{12\text{ SP/Sprint}} = 2.58 \lo
 | :--- | :--- | :--- |
 | **Análisis y Justificación del Modelo de Proceso** | Comparación metodológica y argumentación técnica de la elección en `DOCS/04_plan_de_proyecto_y_modelos.md`. | 2.0 pts |
 | **Estructuración y Matemática de Sprints (MVP)** | Aplicación exacta de las fórmulas de velocidad, cálculo de Sprints y distribución de historias sin sobrepasar la capacidad $V$. | 1.5 pts |
-| **Resumen Ejecutivo y Comercial Consolidado** | Consolidación clara de semanas, esfuerzo acumulado en hor
+| **Resumen Ejecutivo y Comercial Consolidado** | Consolidación clara de semanas, esfuerzo acumulado en horas y presupuesto total en COP. | 1.5 pts |
