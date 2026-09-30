@@ -369,7 +369,7 @@ Determina el número de iteraciones requeridas para terminar las historias prior
 
 $$N_{\text{Sprints}} = \frac{\sum \text{SP}_{\text{Must Have}}}{V}$$
 
-*(Nota: Si el resultado tiene decimales, se redondea hacia arriba al entero superior; por ejemplo: $1.83 \rightarrow 2 \text{ Sprints}$).*
+*(Nota: Si el resultado tiene decimales, se redondea hacia arriba al entero superior; por ejemplo: 1.83 se redondea a 2 Sprints).*
 
 #### FÓRMULA 3: Tiempo Total de Desarrollo en Semanas ($T_{\text{semanas}}$)
 Multiplica el número de Sprints por la duración de cada Sprint en semanas (estándar: 2 semanas por Sprint):
