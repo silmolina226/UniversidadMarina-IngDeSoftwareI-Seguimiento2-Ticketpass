@@ -404,7 +404,7 @@ $$T_{\text{semanas}} = N_{\text{Sprints}} \times \text{Duración del Sprint (sem
 
 ### 2.1. Selección y Justificación del Modelo de Proceso
 Se selecciona el marco **Scrum (Ágil)**.
-* **Justificación:** TicketPass es una plataforma comercial expuesta a alta competencia. Se necesita lanzar un **Producto Mínimo Viable (MVP)** al mercado en el menor tiempo posible para validar ventas y boleta digital, dejando funcionalidades avanzadas (como el mapa SVG interactivo) para incrementos posteriores.
+* **Justificación:** TicketPass es una plataforma comercial expuesta a alta competencia. Se necesita lanzar un **Producto Mínimo Viable (MVP)** al mercado en el menor tiempo posible para validar ventas y boleta digital, dejando funcionalidades avanzadas para incrementos posteriores. En particular, la funcionalidad del **mapa SVG interactivo (`HU04`)** —que permite la renderización gráfica vectorial del recinto en tiempo real, la selección dinámica de sillas y la sincronización visual de disponibilidad— representa un esfuerzo considerable de desarrollo (8 SP) que no impide la operación básica del negocio, por lo que se posterga para la fase de extensión.
 
 ### 2.2. Determinación de los Parámetros del Proyecto TicketPass
 * **Backlog Completo:** $31\text{ SP}$ (5 Historias de Usuario).
